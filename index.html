@@ -27,7 +27,20 @@
             </button>
             <div class="nav-links" id="navLinks">
                 <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-btn">
+                        Projects
+                        <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="https://jack-huston.github.io/Ice-Plume-Detector">Ice Plume Detector</a>
+                        <a href="https://jack-huston.github.io/Propellant-Level-Sensor">Propellant Sensor</a>
+                        <a href="https://jack-huston.github.io/Smart-Home-Lamp">Smart Home Lamp</a>
+                        <a href="https://jack-huston.github.io/Undergraduate-Rocketry">Liquid Engine Dev</a>
+                        <a href="https://jack-huston.github.io/Time-Writing-Robot">SCARA Robot</a>
+                        <a href="https://jack-huston.github.io/Satellite-Constellation-Simulation">Satellite Constellation</a>
+                    </div>
+                </div>
                 <a href="#adventures" class="nav-link">Adventures</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -37,7 +50,20 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about" class="mobile-link">About</a>
-        <a href="#projects" class="mobile-link">Projects</a>
+        <div class="mobile-dropdown">
+            <button class="mobile-link mobile-dropdown-btn">
+                Projects
+                <i data-lucide="chevron-down" class="mobile-dropdown-icon"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="mobile-sublink">Ice Plume Detector</a>
+                <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="mobile-sublink">Propellant Sensor</a>
+                <a href="https://jack-huston.github.io/Smart-Home-Lamp" class="mobile-sublink">Smart Home Lamp</a>
+                <a href="https://jack-huston.github.io/Undergraduate-Rocketry" class="mobile-sublink">Liquid Engine Dev</a>
+                <a href="https://jack-huston.github.io/Time-Writing-Robot" class="mobile-sublink">SCARA Robot</a>
+                <a href="https://jack-huston.github.io/Satellite-Constellation-Simulation" class="mobile-sublink">Satellite Constellation</a>
+            </div>
+        </div>
         <a href="#adventures" class="mobile-link">Adventures</a>
         <a href="#contact" class="mobile-link">Contact</a>
     </div>
@@ -100,11 +126,15 @@
                         </p>
                     </div>
                 </div>
-                <div class="cv-button-container">
-                    <button class="btn-cv">
+                <div class="about-buttons-container">
+                    <a href="Jack Huston Resume.pdf" download class="btn-cv">
                         <i data-lucide="download"></i>
                         <span>Download CV</span>
-                    </button>
+                    </a>
+                    <a href="https://jack-huston.github.io/About-Me" class="btn-learn-more">
+                        <i data-lucide="user"></i>
+                        <span>Learn More About Me</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -116,10 +146,10 @@
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">Explore my work across propulsion, instrumentation, and embedded systems</p>
 
-            <div class="projects-grid" id="projectsGrid">
+            <div class="projects-grid">
                 
                 <!-- Project 1: Ice Plume Particle Detector -->
-                <div class="project-card" onclick="openModal('modal1')">
+                <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="project-card">
                     <div class="project-image-container">
                         <img src="project1-placeholder.jpg" alt="Ice Plume Particle Detector" class="project-image">
                     </div>
@@ -147,10 +177,10 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Project 2: Liquid Rocket Propellant Level Sensor -->
-                <div class="project-card" onclick="openModal('modal2')">
+                <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="project-card">
                     <div class="project-image-container">
                         <img src="project2-placeholder.jpg" alt="Liquid Rocket Propellant Level Sensor" class="project-image">
                     </div>
@@ -177,10 +207,10 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Project 3: IoT Smart Home Control Lamps -->
-                <div class="project-card" onclick="openModal('modal3')">
+                <a href="https://jack-huston.github.io/Smart-Home-Lamp" class="project-card">
                     <div class="project-image-container">
                         <img src="project3-placeholder.jpg" alt="IoT Smart Home Control Lamps" class="project-image">
                     </div>
@@ -207,10 +237,10 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Project 4: Liquid Engine Integration & Test -->
-                <div class="project-card" onclick="openModal('modal4')">
+                <a href="https://jack-huston.github.io/Undergraduate-Rocketry" class="project-card">
                     <div class="project-image-container">
                         <img src="project4-placeholder.jpg" alt="Liquid Engine Integration & Test" class="project-image">
                     </div>
@@ -236,10 +266,10 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Project 5: SCARA Robot Writing Clock -->
-                <div class="project-card" onclick="openModal('modal5')">
+                <a href="https://jack-huston.github.io/Time-Writing-Robot" class="project-card">
                     <div class="project-image-container">
                         <img src="project5-placeholder.jpg" alt="SCARA Robot Writing Clock" class="project-image">
                     </div>
@@ -266,10 +296,10 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Project 6: Satellite Constellation Optimization -->
-                <div class="project-card" onclick="openModal('modal6')">
+                <a href="https://jack-huston.github.io/Satellite-Constellation-Simulation" class="project-card">
                     <div class="project-image-container">
                         <img src="project6-placeholder.jpg" alt="Satellite Constellation Optimization" class="project-image">
                     </div>
@@ -294,7 +324,7 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </a>
 
             </div>
         </div>
@@ -309,38 +339,45 @@
                 <p class="section-subtitle">Adventures that fuel my drive for exploration</p>
             </div>
             <div class="adventures-grid">
-                <div class="adventure-photo" onclick="openAdventureGallery('skiing')">
+                <div class="adventure-photo">
                     <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" alt="Skiing in Colorado">
                     <div class="adventure-overlay">
                         <p>Skiing in Colorado</p>
                     </div>
                 </div>
-                <div class="adventure-photo" onclick="openAdventureGallery('climbing')">
+                <div class="adventure-photo">
                     <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?w=800&q=80" alt="Rock climbing adventure">
                     <div class="adventure-overlay">
                         <p>Rock climbing adventure</p>
                     </div>
                 </div>
-                <div class="adventure-photo" onclick="openAdventureGallery('hiking')">
+                <div class="adventure-photo">
                     <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" alt="Mountain hiking">
                     <div class="adventure-overlay">
                         <p>Mountain hiking</p>
                     </div>
                 </div>
-                <div class="adventure-photo" onclick="openAdventureGallery('summit')">
+                <div class="adventure-photo">
                     <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Summit views">
                     <div class="adventure-overlay">
                         <p>Summit views</p>
                     </div>
                 </div>
             </div>
+            <div class="adventure-button-container">
+                <a href="https://jack-huston.github.io/Outdoor-Adventures" class="btn-explore-more">
+                    <i data-lucide="compass"></i>
+                    <span>Explore More</span>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
+    <section id="contact" class="section contact-section">
+        <div class="contact-glow"></div>
+        <div class="container contact-container">
+            <h2 class="section-title contact-title">Let's Connect</h2>
             <p class="contact-subtitle">
                 Interested in propulsion collaboration or opportunities in launch vehicle development?
             </p>
@@ -352,7 +389,7 @@
                     <i data-lucide="mail" class="icon-contact"></i>
                     <span>Email Me</span>
                 </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <a href="https://www.linkedin.com/in/jack-huston/" target="_blank" rel="noopener noreferrer" class="contact-card">
                     <i data-lucide="linkedin" class="icon-contact"></i>
                     <span>LinkedIn</span>
                 </a>
@@ -369,232 +406,9 @@
         </div>
     </footer>
 
-    <!-- Project Modals -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal1')">
-                <i data-lucide="x"></i>
-            </button>
-            <img src="project1-placeholder.jpg" alt="Ice Plume Particle Detector" class="modal-image">
-            <div class="modal-badge">
-                <i data-lucide="atom"></i>
-                <span>Instrumentation & Systems Design</span>
-            </div>
-            <h3 class="modal-title">Ice Plume Particle Detector</h3>
-            <p class="modal-description">
-                Developed and prototyped a charged particle detection instrument for spacecraft flying through Enceladus' ice plumes. Designed mechanical and electronic subsystems to enable in-situ analysis of charged ice grains for subsurface ocean studies.
-            </p>
-            <div class="modal-tags">
-                <span class="tag">MATLAB</span>
-                <span class="tag">LabVIEW</span>
-                <span class="tag">C++</span>
-                <span class="tag">PCB Design</span>
-                <span class="tag">SolidWorks</span>
-                <span class="tag">Manufacturing</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal2')">
-                <i data-lucide="x"></i>
-            </button>
-            <img src="project2-placeholder.jpg" alt="Liquid Rocket Propellant Level Sensor" class="modal-image">
-            <div class="modal-badge">
-                <i data-lucide="flame"></i>
-                <span>Propulsion Systems & Cryogenics</span>
-            </div>
-            <h3 class="modal-title">Liquid Rocket Propellant Level Sensor</h3>
-            <p class="modal-description">
-                Designed and built a capacitance-based sensor for measuring propellant levels in cryogenic LOX and RP-1 tanks. Calibrated and integrated the sensor to characterize flow rates during engine testing for the CU Sounding Rocket Lab's liquid development engine.
-            </p>
-            <div class="modal-tags">
-                <span class="tag">C++</span>
-                <span class="tag">SolidWorks</span>
-                <span class="tag">Manufacturing</span>
-                <span class="tag">PCB Design</span>
-                <span class="tag">Integration & Test</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal3')">
-                <i data-lucide="x"></i>
-            </button>
-            <img src="project3-placeholder.jpg" alt="IoT Smart Home Control Lamps" class="modal-image">
-            <div class="modal-badge">
-                <i data-lucide="wifi"></i>
-                <span>Embedded Systems & IoT</span>
-            </div>
-            <h3 class="modal-title">IoT Smart Home Control Lamps</h3>
-            <p class="modal-description">
-                Built a pair of internet-connected lamps with a rotational interface that transmits color selections in real time between devices worldwide. Demonstrated low-latency bidirectional communication for remote control and embedded system design.
-            </p>
-            <div class="modal-tags">
-                <span class="tag">C++</span>
-                <span class="tag">3D Printing</span>
-                <span class="tag">Electronics</span>
-                <span class="tag">IoT</span>
-                <span class="tag">Manufacturing</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal4" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal4')">
-                <i data-lucide="x"></i>
-            </button>
-            <img src="project4-placeholder.jpg" alt="Liquid Engine Integration & Test" class="modal-image">
-            <div class="modal-badge">
-                <i data-lucide="wrench"></i>
-                <span>Engine Integration & Test Engineering</span>
-            </div>
-            <h3 class="modal-title">Liquid Engine Integration & Test</h3>
-            <p class="modal-description">
-                Worked with the Sounding Rocket Lab to assemble and test a development liquid rocket engine. Integrated sensing electronics, control logic, and fluid routing systems for hotfire readiness and data collection.
-            </p>
-            <div class="modal-tags">
-                <span class="tag">Integration & Test</span>
-                <span class="tag">LabVIEW</span>
-                <span class="tag">Electronics</span>
-                <span class="tag">Control Logic</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal5" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal5')">
-                <i data-lucide="x"></i>
-            </button>
-            <img src="project5-placeholder.jpg" alt="SCARA Robot Writing Clock" class="modal-image">
-            <div class="modal-badge">
-                <i data-lucide="cpu"></i>
-                <span>Automation & Mechatronics</span>
-            </div>
-            <h3 class="modal-title">SCARA Robot Writing Clock</h3>
-            <p class="modal-description">
-                Designed and programmed a SCARA-style robot that continuously wrote and erased the current time on a whiteboard. A slightly ridiculous 'do-nothing machine' demonstrating kinematics and precision control.
-            </p>
-            <div class="modal-tags">
-                <span class="tag">C++</span>
-                <span class="tag">3D Printing</span>
-                <span class="tag">Electronics</span>
-                <span class="tag">Kinematics</span>
-                <span class="tag">Control Systems</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal6" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal6')">
-                <i data-lucide="x"></i>
-            </button>
-            <img src="project6-placeholder.jpg" alt="Satellite Constellation Optimization" class="modal-image">
-            <div class="modal-badge">
-                <i data-lucide="satellite"></i>
-                <span>Modeling & Simulation</span>
-            </div>
-            <h3 class="modal-title">Satellite Constellation Optimization</h3>
-            <p class="modal-description">
-                Developed a MATLAB simulation to optimize orbital constellations, maximizing global population coverage within the field of view of at least one communications satellite.
-            </p>
-            <div class="modal-tags">
-                <span class="tag">MATLAB</span>
-                <span class="tag">Orbital Mechanics</span>
-                <span class="tag">Simulation</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Adventure Gallery Modal -->
-    <div id="adventureModal" class="modal">
-        <div class="modal-content adventure-gallery-modal">
-            <button class="modal-close" onclick="closeAdventureGallery()">
-                <i data-lucide="x"></i>
-            </button>
-            <h3 class="modal-title" id="adventureTitle"></h3>
-            <div class="adventure-gallery-grid" id="adventureGalleryGrid">
-                <!-- Dynamically populated -->
-            </div>
-        </div>
-    </div>
-
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
-
-        // Adventure galleries data
-        const adventureGalleries = {
-            skiing: {
-                title: "Skiing in Colorado",
-                images: [
-                    "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80",
-                    "https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&q=80",
-                    "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?w=800&q=80",
-                    "https://images.unsplash.com/photo-1498146831523-fbe41acdc5ad?w=800&q=80"
-                ]
-            },
-            climbing: {
-                title: "Rock Climbing Adventures",
-                images: [
-                    "https://images.unsplash.com/photo-1522163182402-834f871fd851?w=800&q=80",
-                    "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80",
-                    "https://images.unsplash.com/photo-1564769625905-50e93615e769?w=800&q=80",
-                    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
-                ]
-            },
-            hiking: {
-                title: "Mountain Hiking",
-                images: [
-                    "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80",
-                    "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
-                    "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=80",
-                    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
-                ]
-            },
-            summit: {
-                title: "Summit Views",
-                images: [
-                    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
-                    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-                    "https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?w=800&q=80",
-                    "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
-                ]
-            }
-        };
-
-        // Open adventure gallery
-        function openAdventureGallery(category) {
-            const modal = document.getElementById('adventureModal');
-            const title = document.getElementById('adventureTitle');
-            const grid = document.getElementById('adventureGalleryGrid');
-            
-            const gallery = adventureGalleries[category];
-            title.textContent = gallery.title;
-            
-            grid.innerHTML = gallery.images.map(img => 
-                `<div class="adventure-gallery-item">
-                    <img src="${img}" alt="${gallery.title}">
-                </div>`
-            ).join('');
-            
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => lucide.createIcons(), 10);
-        }
-
-        // Close adventure gallery
-        function closeAdventureGallery() {
-            const modal = document.getElementById('adventureModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
 
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -615,38 +429,43 @@
 
         // Close mobile menu when link is clicked
         document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
+            link.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('mobile-dropdown-btn')) {
+                    mobileMenu.classList.remove('active');
+                    menuIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                }
             });
         });
 
-        // Modal functions
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => lucide.createIcons(), 10);
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    if (modal.id === 'adventureModal') {
-                        closeAdventureGallery();
-                    } else {
-                        closeModal(modal.id);
-                    }
-                }
+        // Desktop dropdown toggle
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        
+        if (dropdownBtn) {
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdownContent.classList.toggle('show');
             });
+        }
+
+        // Mobile dropdown toggle
+        const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
+        const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+        
+        if (mobileDropdownBtn) {
+            mobileDropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileDropdownContent.classList.toggle('show');
+                const icon = mobileDropdownBtn.querySelector('.mobile-dropdown-icon');
+                icon.style.transform = mobileDropdownContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            if (dropdownContent) dropdownContent.classList.remove('show');
+            if (mobileDropdownContent) mobileDropdownContent.classList.remove('show');
         });
 
         // Navbar background on scroll
@@ -658,6 +477,9 @@
                 navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
             }
         });
-        </script>
+
+        // Re-initialize icons after dynamic content loads
+        setTimeout(() => lucide.createIcons(), 100);
+    </script>
 </body>
 </html>
