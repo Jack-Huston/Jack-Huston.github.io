@@ -430,11 +430,14 @@
         // Close mobile menu when link is clicked
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', (e) => {
-                if (!e.target.classList.contains('mobile-dropdown-btn')) {
-                    mobileMenu.classList.remove('active');
-                    menuIcon.style.display = 'block';
-                    closeIcon.style.display = 'none';
+                // Don't close menu if clicking on dropdown button or icon
+                if (e.target.classList.contains('mobile-dropdown-btn') || 
+                    e.target.closest('.mobile-dropdown-btn')) {
+                    return;
                 }
+                mobileMenu.classList.remove('active');
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
             });
         });
 
@@ -455,10 +458,13 @@
         
         if (mobileDropdownBtn) {
             mobileDropdownBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 mobileDropdownContent.classList.toggle('show');
                 const icon = mobileDropdownBtn.querySelector('.mobile-dropdown-icon');
-                icon.style.transform = mobileDropdownContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+                if (icon) {
+                    icon.style.transform = mobileDropdownContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
             });
         }
 
