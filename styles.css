@@ -934,3 +934,215 @@ box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
     color: var(--orange-700);
     margin-bottom: 1rem;
 }
+/* Hero Profile Image */
+.hero-profile-container {
+    margin-bottom: 1.5rem;
+}
+
+.hero-profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--orange-600);
+    box-shadow: 0 10px 25px rgba(234, 88, 12, 0.3);
+}
+
+@media (min-width: 768px) {
+    .hero-profile-image {
+        width: 180px;
+        height: 180px;
+        border-width: 5px;
+    }
+}
+
+/* Skills Filter */
+.skills-filter {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 2px solid var(--orange-100);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.skills-filter-label {
+    font-weight: 600;
+    color: var(--slate-700);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.skills-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-filter-btn {
+    padding: 0.5rem 1rem;
+    background: var(--slate-100);
+    border: 2px solid var(--slate-200);
+    border-radius: 0.5rem;
+    color: var(--slate-700);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.skill-filter-btn:hover {
+    background: var(--orange-50);
+    border-color: var(--orange-300);
+}
+
+.skill-filter-btn.active {
+    background: linear-gradient(135deg, var(--orange-600), var(--red-600));
+    border-color: var(--orange-600);
+    color: white;
+}
+
+.skills-reset {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 2px solid var(--slate-300);
+    border-radius: 0.5rem;
+    color: var(--slate-600);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.skills-reset:hover {
+    background: var(--slate-100);
+    border-color: var(--slate-400);
+}
+
+/* Grayed out projects */
+.project-card.grayed-out {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Project images */
+.project-image-container {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+/* Adventure Gallery Modal */
+.adventure-gallery-modal {
+    max-width: 1000px;
+}
+
+.adventure-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .adventure-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+.adventure-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    aspect-ratio: 4/3;
+}
+
+.adventure-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.adventure-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Additional project card styles */
+.project-badge-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--orange-600), var(--red-600));
+    color: white;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-badge-header i {
+    width: 16px;
+    height: 16px;
+}
+
+.project-links-simple {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.modal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--orange-600), var(--red-600));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+}
+
+.modal-badge i {
+    width: 16px;
+    height: 16px;
+}
+
+.modal-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: var(--orange-700);
+    margin-bottom: 1rem;
+}
+
+.modal-image {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .modal-image {
+        height: 16rem;
+    }
+}
