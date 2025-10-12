@@ -427,14 +427,9 @@
             }
         });
 
-        // Close mobile menu when link is clicked
+        // Close mobile menu when clicking regular links (not dropdown toggle)
         document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Don't close menu if clicking on dropdown button or icon
-                if (e.target.classList.contains('mobile-dropdown-btn') || 
-                    e.target.closest('.mobile-dropdown-btn')) {
-                    return;
-                }
+            link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 menuIcon.style.display = 'block';
                 closeIcon.style.display = 'none';
@@ -444,7 +439,7 @@
         // Desktop dropdown toggle
         const dropdownToggleBtn = document.querySelector('.dropdown-toggle-btn');
         const dropdownContent = document.querySelector('.dropdown-content');
-        
+
         if (dropdownToggleBtn) {
             dropdownToggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -455,7 +450,7 @@
         // Mobile dropdown toggle
         const mobileToggleBtn = document.querySelector('.mobile-toggle-btn');
         const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
-        
+
         if (mobileToggleBtn) {
             mobileToggleBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -465,24 +460,12 @@
                 if (icon) {
                     icon.style.transform = mobileDropdownContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
                 }
-                // Re-initialize icons after rotation
-                setTimeout(() => lucide.createIcons(), 10);
             });
         }
-        
-        // Close mobile menu when clicking regular links (not dropdown toggle)
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-            });
-        });
 
         // Close dropdowns when clicking outside
         document.addEventListener('click', () => {
             if (dropdownContent) dropdownContent.classList.remove('show');
-            if (mobileDropdownContent) mobileDropdownContent.classList.remove('show');
         });
 
         // Navbar background on scroll
