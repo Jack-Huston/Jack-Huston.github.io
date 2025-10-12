@@ -921,3 +921,8 @@ body {
 .dropdown-btn:hover {
     color: var(--orange-600);
 }
+
+.dropdown-btn,
+.mobile-dropdown-btn {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
