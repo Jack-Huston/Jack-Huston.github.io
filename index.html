@@ -28,8 +28,8 @@
             <div class="nav-links" id="navLinks">
                 <a href="#about" class="nav-link">About</a>
                 <div class="nav-dropdown">
-                    <button class="nav-link dropdown-btn">
-                        Projects
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <button class="dropdown-toggle-btn">
                         <i data-lucide="chevron-down" class="dropdown-icon"></i>
                     </button>
                     <div class="dropdown-content">
@@ -51,8 +51,8 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about" class="mobile-link">About</a>
         <div class="mobile-dropdown">
-            <button class="mobile-link mobile-dropdown-btn">
-                Projects
+            <a href="#projects" class="mobile-link">Projects</a>
+            <button class="mobile-toggle-btn" onclick="event.stopPropagation();">
                 <i data-lucide="chevron-down" class="mobile-dropdown-icon"></i>
             </button>
             <div class="mobile-dropdown-content">
@@ -442,31 +442,40 @@
         });
 
         // Desktop dropdown toggle
-        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const dropdownToggleBtn = document.querySelector('.dropdown-toggle-btn');
         const dropdownContent = document.querySelector('.dropdown-content');
         
-        if (dropdownBtn) {
-            dropdownBtn.addEventListener('click', (e) => {
+        if (dropdownToggleBtn) {
+            dropdownToggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 dropdownContent.classList.toggle('show');
             });
         }
 
         // Mobile dropdown toggle
-        const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
+        const mobileToggleBtn = document.querySelector('.mobile-toggle-btn');
         const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
         
-        if (mobileDropdownBtn) {
-            mobileDropdownBtn.addEventListener('click', (e) => {
+        if (mobileToggleBtn) {
+            mobileToggleBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 mobileDropdownContent.classList.toggle('show');
-                const icon = mobileDropdownBtn.querySelector('.mobile-dropdown-icon');
+                const icon = mobileToggleBtn.querySelector('.mobile-dropdown-icon');
                 if (icon) {
                     icon.style.transform = mobileDropdownContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
                 }
             });
         }
+        
+        // Close mobile menu when clicking regular links (not dropdown toggle)
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+            });
+        });
 
         // Close dropdowns when clicking outside
         document.addEventListener('click', () => {
