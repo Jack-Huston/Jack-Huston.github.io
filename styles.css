@@ -50,12 +50,12 @@ body {
 /* Screen-reader only text utility */
 .visually-hidden {
     position: absolute !important;
-    height: 1px;
-    width: 1px;
+    height: 1px; width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
 }
+
 
 /* Navigation */
 .navbar {
@@ -223,20 +223,22 @@ body {
     background-color: var(--orange-50);
 }
 
-/* --- Mobile Dropdown (reworked to drop BELOW and slide via max-height) --- */
+/* Mobile Dropdown */
 .mobile-dropdown {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto; /* title left, chevron button right */
     align-items: center;
     width: 100%;
     column-gap: 0.5rem;
 }
 
+/* Keep the Projects text on the left column */
 .mobile-dropdown .mobile-link {
     grid-column: 1 / 2;
     margin: 0;
 }
 
+/* Orange chevron button on the right */
 .mobile-toggle-btn {
     grid-column: 2 / 3;
     background: linear-gradient(135deg, var(--orange-600), var(--red-600));
@@ -267,20 +269,27 @@ body {
     transition: transform 0.18s ease;
 }
 
+/* rotate chevron when open, your JS can update aria-expanded */
 .mobile-toggle-btn[aria-expanded="true"] .mobile-dropdown-icon {
     transform: rotate(180deg);
 }
 
-/* Submenu: stacked underneath, full width, smooth slide */
+/* Submenu sits BELOW the row and slides open */
 .mobile-dropdown-content {
-    grid-column: 1 / -1;               /* span under both columns */
-    overflow: hidden;                   /* hide when collapsed */
-    max-height: 0;                      /* collapsed */
+    grid-column: 1 / -1;            /* span full width under both columns */
+    overflow: hidden;               /* hide while collapsed */
+    max-height: 0;                  /* collapsed */
     opacity: 0;
     background-color: var(--slate-50);
     border-top: 1px solid var(--orange-100);
     transition: max-height 0.26s ease, opacity 0.18s ease;
     will-change: max-height;
+}
+
+/* When your JS toggles .show, reveal it */
+.mobile-dropdown-content.show {
+    max-height: 1000px;             /* big enough to fit all links */
+    opacity: 1;
 }
 
 .mobile-sublink {
