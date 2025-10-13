@@ -49,23 +49,37 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" class="mobile-link">About</a>
-        <div class="mobile-dropdown">
-            <a href="#projects" class="mobile-link">Projects</a>
-            <button class="mobile-toggle-btn">
-                <i data-lucide="chevron-down" class="mobile-dropdown-icon"></i>
-            </button>
-            <div class="mobile-dropdown-content">
-                <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="mobile-sublink">Ice Plume Detector</a>
-                <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="mobile-sublink">Propellant Sensor</a>
-                <a href="https://jack-huston.github.io/Smart-Home-Lamp" class="mobile-sublink">Smart Home Lamp</a>
-                <a href="https://jack-huston.github.io/Undergraduate-Rocketry" class="mobile-sublink">Liquid Engine Dev</a>
-                <a href="https://jack-huston.github.io/Time-Writing-Robot" class="mobile-sublink">SCARA Robot</a>
-                <a href="https://jack-huston.github.io/Satellite-Constellation-Simulation" class="mobile-sublink">Satellite Constellation</a>
-            </div>
+      <a href="#about" class="mobile-link">About</a>
+    
+      <div class="mobile-dropdown">
+        <a href="#projects" class="mobile-link">Projects</a>
+        <button
+          class="mobile-toggle-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobileProjectsSubmenu"
+        >
+          <i data-lucide="chevron-down" class="mobile-dropdown-icon"></i>
+          <span class="visually-hidden">Toggle Projects submenu</span>
+        </button>
+    
+        <div
+          class="mobile-dropdown-content"
+          id="mobileProjectsSubmenu"
+          role="region"
+          aria-label="Projects submenu"
+        >
+          <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="mobile-sublink">Ice Plume Detector</a>
+          <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="mobile-sublink">Propellant Sensor</a>
+          <a href="https://jack-huston.github.io/Smart-Home-Lamp" class="mobile-sublink">Smart Home Lamp</a>
+          <a href="https://jack-huston.github.io/Undergraduate-Rocketry" class="mobile-sublink">Liquid Engine Dev</a>
+          <a href="https://jack-huston.github.io/Time-Writing-Robot" class="mobile-sublink">SCARA Robot</a>
+          <a href="https://jack-huston.github.io/Satellite-Constellation-Simulation" class="mobile-sublink">Satellite Constellation</a>
         </div>
-        <a href="#adventures" class="mobile-link">Adventures</a>
-        <a href="#contact" class="mobile-link">Contact</a>
+      </div>
+    
+      <a href="#adventures" class="mobile-link">Adventures</a>
+      <a href="#contact" class="mobile-link">Contact</a>
     </div>
 
     <!-- Hero Section -->
