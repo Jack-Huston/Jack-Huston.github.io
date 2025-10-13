@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
@@ -38,7 +36,7 @@
                         <a href="https://jack-huston.github.io/Smart-Home-Lamp">Smart Home Lamp</a>
                         <a href="https://jack-huston.github.io/Undergraduate-Rocketry">Liquid Engine Dev</a>
                         <a href="https://jack-huston.github.io/Time-Writing-Robot">SCARA Robot</a>
-                        <a href="https://jack-huston.github.io/Satellite-Constellation-Simulation">Satellite Constellation</a>
+                        <!-- Satellite Constellation removed -->
                     </div>
                 </div>
                 <a href="#adventures" class="nav-link">Adventures</a>
@@ -50,7 +48,7 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="#about" class="mobile-link">About</a>
-    
+
       <div class="mobile-dropdown">
           <a href="#projects" class="mobile-link">Projects</a>
           <button
@@ -62,17 +60,17 @@
             <i data-lucide="chevron-down" class="mobile-dropdown-icon"></i>
             <span class="visually-hidden">Toggle Projects submenu</span>
           </button>
-        
+
           <div class="mobile-dropdown-content" id="mobileProjectsSubmenu">
             <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="mobile-sublink">Ice Plume Detector</a>
             <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="mobile-sublink">Propellant Sensor</a>
             <a href="https://jack-huston.github.io/Smart-Home-Lamp" class="mobile-sublink">Smart Home Lamp</a>
             <a href="https://jack-huston.github.io/Undergraduate-Rocketry" class="mobile-sublink">Liquid Engine Dev</a>
             <a href="https://jack-huston.github.io/Time-Writing-Robot" class="mobile-sublink">SCARA Robot</a>
-            <a href="https://jack-huston.github.io/Satellite-Constellation-Simulation" class="mobile-sublink">Satellite Constellation</a>
+            <!-- Satellite Constellation removed -->
           </div>
         </div>
-    
+
       <a href="#adventures" class="mobile-link">Adventures</a>
       <a href="#contact" class="mobile-link">Contact</a>
     </div>
@@ -129,337 +127,4 @@
                             of next-generation <strong class="text-blue">launch vehicle engines</strong> that enable rapid and repeatable access to orbit.
                         </p>
                         <p class="about-text">
-                            Outside of work, I bring the same focus and problem-solving mindset to the mountains. Whether it's scaling 
-                            Colorado's alpine terrain, skiing through new backcountry lines, or chasing a summit, I value challenges 
-                            that demand preparation, adaptability, and persistence.
-                        </p>
-                    </div>
-                </div>
-                <div class="about-buttons-container">
-                    <a href="https://jack-huston.github.io/Jack%20Huston%20Resume.pdf" download class="btn-cv">
-                        <i data-lucide="download"></i>
-                        <span>Download CV</span>
-                    </a>
-                    <a href="https://jack-huston.github.io/About-Me" class="btn-learn-more">
-                        <i data-lucide="user"></i>
-                        <span>Learn More About Me</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container-wide">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Explore my work across propulsion, instrumentation, and embedded systems</p>
-
-            <div class="projects-grid">
-                
-                <!-- Project 1: Ice Plume Particle Detector -->
-                <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="project-card">
-                    <div class="project-image-container">
-                        <img src="project1-placeholder.jpg" alt="Ice Plume Particle Detector" class="project-image">
-                    </div>
-                    <div class="project-badge-header">
-                        <i data-lucide="atom"></i>
-                        <span>Instrumentation & Systems Design</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Ice Plume Particle Detector</h3>
-                        <p class="project-description">
-                            Developed and prototyped a charged particle detection instrument for spacecraft flying through Enceladus' ice plumes. Designed mechanical and electronic subsystems to enable in-situ analysis of charged ice grains for subsurface ocean studies.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">MATLAB</span>
-                            <span class="tag">LabVIEW</span>
-                            <span class="tag">C++</span>
-                            <span class="tag">PCB Design</span>
-                            <span class="tag">SolidWorks</span>
-                            <span class="tag">Manufacturing</span>
-                        </div>
-                        <div class="project-links-simple">
-                            <span class="link-details">
-                                <span>View Details</span>
-                                <i data-lucide="arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 2: Liquid Rocket Propellant Level Sensor -->
-                <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="project-card">
-                    <div class="project-image-container">
-                        <img src="project2-placeholder.jpg" alt="Liquid Rocket Propellant Level Sensor" class="project-image">
-                    </div>
-                    <div class="project-badge-header">
-                        <i data-lucide="flame"></i>
-                        <span>Propulsion Systems & Cryogenics</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">LOX/RP-1 Propellant Level Sensor</h3>
-                        <p class="project-description">
-                            Designed and built a capacitance-based sensor for measuring propellant levels in cryogenic LOX and RP-1 tanks. Calibrated and integrated the sensor to characterize flow rates during engine testing for the CU Sounding Rocket Lab's liquid development engine.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">SolidWorks</span>
-                            <span class="tag">Manufacturing</span>
-                            <span class="tag">PCB Design</span>
-                            <span class="tag">Integration & Test</span>
-                        </div>
-                        <div class="project-links-simple">
-                            <span class="link-details">
-                                <span>View Details</span>
-                                <i data-lucide="arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 3: IoT Smart Home Control Lamps -->
-                <a href="https://jack-huston.github.io/Smart-Home-Lamp" class="project-card">
-                    <div class="project-image-container">
-                        <img src="project3-placeholder.jpg" alt="IoT Smart Home Control Lamps" class="project-image">
-                    </div>
-                    <div class="project-badge-header">
-                        <i data-lucide="wifi"></i>
-                        <span>Embedded Systems & IoT</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">IoT Smart Home Control Lamps</h3>
-                        <p class="project-description">
-                            Built a pair of internet-connected lamps with a rotational interface that transmits color selections in real time between devices worldwide. Demonstrated low-latency bidirectional communication for remote control and embedded system design.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">3D Printing</span>
-                            <span class="tag">Electronics</span>
-                            <span class="tag">IoT</span>
-                            <span class="tag">Manufacturing</span>
-                        </div>
-                        <div class="project-links-simple">
-                            <span class="link-details">
-                                <span>View Details</span>
-                                <i data-lucide="arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 4: Liquid Engine Integration & Test -->
-                <a href="https://jack-huston.github.io/Undergraduate-Rocketry" class="project-card">
-                    <div class="project-image-container">
-                        <img src="project4-placeholder.jpg" alt="Liquid Engine & Solid Rocket Integration & Test" class="project-image">
-                    </div>
-                    <div class="project-badge-header">
-                        <i data-lucide="wrench"></i>
-                        <span>Engine & Motor I&T</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Liquid Engine & Solid Motor Integration & Test</h3>
-                        <p class="project-description">
-                            Worked with the Sounding Rocket Lab to assemble and test a development liquid rocket engine and R-Class solid rocket motor. Integrated sensing electronics, control logic, and fluid routing systems for hotfire readiness and data collection.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Integration & Test</span>
-                            <span class="tag">LabVIEW</span>
-                            <span class="tag">Electronics</span>
-                            <span class="tag">Control Logic</span>
-                        </div>
-                        <div class="project-links-simple">
-                            <span class="link-details">
-                                <span>View Details</span>
-                                <i data-lucide="arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 5: SCARA Robot Writing Clock -->
-                <a href="https://jack-huston.github.io/Time-Writing-Robot" class="project-card">
-                    <div class="project-image-container">
-                        <img src="project5-placeholder.jpg" alt="SCARA Robot Writing Clock" class="project-image">
-                    </div>
-                    <div class="project-badge-header">
-                        <i data-lucide="cpu"></i>
-                        <span>Automation & Mechatronics</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">SCARA Robot Writing Clock</h3>
-                        <p class="project-description">
-                            Designed and programmed a SCARA-style robot that continuously wrote and erased the current time on a whiteboard. A slightly ridiculous 'do-nothing machine' demonstrating kinematics and precision control.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">3D Printing</span>
-                            <span class="tag">Electronics</span>
-                            <span class="tag">Kinematics</span>
-                            <span class="tag">Control Systems</span>
-                        </div>
-                        <div class="project-links-simple">
-                            <span class="link-details">
-                                <span>View Details</span>
-                                <i data-lucide="arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Adventures Section -->
-    <section id="adventures" class="section section-white">
-        <div class="container-wide">
-            <div class="adventures-header">
-                <i data-lucide="mountain" class="icon-section"></i>
-                <h2 class="section-title">Off the Drawing Board</h2>
-                <p class="section-subtitle">Adventures that fuel my drive for exploration</p>
-            </div>
-            <div class="adventures-grid">
-                <div class="adventure-photo">
-                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" alt="Skiing in Colorado">
-                    <div class="adventure-overlay">
-                        <p>Skiing in Colorado</p>
-                    </div>
-                </div>
-                <div class="adventure-photo">
-                    <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?w=800&q=80" alt="Rock climbing adventure">
-                    <div class="adventure-overlay">
-                        <p>Rock climbing adventure</p>
-                    </div>
-                </div>
-                <div class="adventure-photo">
-                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" alt="Mountain hiking">
-                    <div class="adventure-overlay">
-                        <p>Mountain hiking</p>
-                    </div>
-                </div>
-                <div class="adventure-photo">
-                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Summit views">
-                    <div class="adventure-overlay">
-                        <p>Summit views</p>
-                    </div>
-                </div>
-            </div>
-            <div class="adventure-button-container">
-                <a href="https://jack-huston.github.io/Outdoor-Adventures" class="btn-explore-more">
-                    <i data-lucide="compass"></i>
-                    <span>Explore More</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
-        <div class="contact-glow"></div>
-        <div class="container contact-container">
-            <h2 class="section-title contact-title">Let's Connect</h2>
-            <p class="contact-subtitle">
-                Interested in propulsion collaboration or opportunities in launch vehicle development?
-            </p>
-            <p class="contact-text">
-                Let's discuss rocket engines, test campaigns, or your next adventure.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:jackthuston1@gmail.com" class="contact-card">
-                    <i data-lucide="mail" class="icon-contact"></i>
-                    <span>Email Me</span>
-                </a>
-                <a href="https://www.linkedin.com/in/jack-huston/" target="_blank" rel="noopener noreferrer" class="contact-card">
-                    <i data-lucide="linkedin" class="icon-contact"></i>
-                    <span>LinkedIn</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <span>© 2025 Jack Huston.</span>
-            <i data-lucide="rocket" class="icon-footer"></i>
-            <span>Propelling aerospace innovation, one engine at a time.</span>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuIcon = document.getElementById('menuIcon');
-        const closeIcon = document.getElementById('closeIcon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            if (mobileMenu.classList.contains('active')) {
-                menuIcon.style.display = 'none';
-                closeIcon.style.display = 'block';
-            } else {
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-            }
-        });
-
-        // Close mobile menu when clicking regular links (not dropdown toggle)
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-            });
-        });
-
-        // Desktop dropdown toggle
-        const dropdownToggleBtn = document.querySelector('.dropdown-toggle-btn');
-        const dropdownContent = document.querySelector('.dropdown-content');
-
-        if (dropdownToggleBtn) {
-            dropdownToggleBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                dropdownContent.classList.toggle('show');
-            });
-        }
-
-        // Mobile dropdown toggle
-        const mobileToggleBtn = document.querySelector('.mobile-toggle-btn');
-        const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
-
-        if (mobileToggleBtn) {
-            mobileToggleBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                mobileDropdownContent.classList.toggle('show');
-                const icon = mobileToggleBtn.querySelector('.mobile-dropdown-icon');
-                if (icon) {
-                    icon.style.transform = mobileDropdownContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
-                }
-            });
-        }
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', () => {
-            if (dropdownContent) dropdownContent.classList.remove('show');
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            } else {
-                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            }
-        });
-
-        // Re-initialize icons after dynamic content loads
-        setTimeout(() => lucide.createIcons(), 100);
-    </script>
-</body>
-</html>
+                            Outside of work, I bring the same focus and problem-solving mindset t
