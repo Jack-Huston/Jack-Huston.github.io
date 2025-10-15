@@ -876,3 +876,35 @@ body {
 }
 
 .icon-footer { width: 16px; height: 16px; color: var(--orange-600); }
+
+/* ===== Toast (Copied to Clipboard) ===== */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:-60px;              /* hidden by default */
+  transform:translateX(-50%);
+  background:#111827;        /* slate-900 */
+  color:#fff;
+  padding:.6rem 1rem;
+  border-radius:.5rem;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+  font-size:.95rem;
+  z-index:1100;
+  opacity:0;
+  transition:transform .35s ease, opacity .35s ease, bottom .35s ease;
+}
+.toast.show{
+  bottom:18px;               /* slides up */
+  opacity:1;
+}
+
+/* (Keep your existing CSS below this line) */
+
+/* Screen-reader only text utility */
+.visually-hidden{
+  position:absolute!important;height:1px;width:1px;overflow:hidden;
+  clip:rect(1px,1px,1px,1px);white-space:nowrap;
+}
+
+/* The rest of your existing stylesheet remains unchanged */
+
