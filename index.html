@@ -17,7 +17,7 @@
         <i data-lucide="rocket" class="icon-nav"></i>
         <span>Jack Huston</span>
       </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-controls="mobileMenu" aria-expanded="false">
         <i data-lucide="menu" id="menuIcon"></i>
         <i data-lucide="x" id="closeIcon" style="display:none;"></i>
       </button>
@@ -25,10 +25,10 @@
         <a href="#about" class="nav-link">About</a>
         <div class="nav-dropdown">
           <a href="#projects" class="nav-link">Projects</a>
-          <button class="dropdown-toggle-btn">
+          <button class="dropdown-toggle-btn" type="button" aria-expanded="false" aria-controls="desktopProjectsSubmenu">
             <i data-lucide="chevron-down" class="dropdown-icon"></i>
           </button>
-          <div class="dropdown-content">
+          <div class="dropdown-content" id="desktopProjectsSubmenu">
             <a href="https://jack-huston.github.io/Ice-Plume-Detector">Ice Plume Detector</a>
             <a href="https://jack-huston.github.io/Propellant-Level-Sensor">Propellant Sensor</a>
             <a href="https://jack-huston.github.io/Smart-Home-Lamp">Smart Home Lamp</a>
@@ -299,37 +299,27 @@
         <h2 class="section-title">Off the Drawing Board</h2>
         <p class="section-subtitle">Adventures that fuel my drive for exploration</p>
       </div>
+
+      <!-- Six simple images, no captions/overlays; gentle hover scale preserved -->
       <div class="adventures-grid">
         <div class="adventure-photo">
-          <img src="skiing-cover-image.jpg" alt="Skier turning down a ski slope in Wyoming">
-          <div class="adventure-overlay">
-            <p>BC Skiing in Wyoming</p>
-          </div>
+          <img src="adventure-image-1.jpg" alt="Adventure image 1">
         </div>
         <div class="adventure-photo">
-          <img src="canyoneering-cover-image.jpg" alt="Person rappelling into a Utah slot canyon">
-          <div class="adventure-overlay">
-            <p>Canyoneering in Utah</p>
-          </div>
+          <img src="adventure-image-2.jpg" alt="Adventure image 2">
         </div>
         <div class="adventure-photo">
-          <img src="travel-cover-image.jpg" alt="Scuba diver in deep blue water">
-          <div class="adventure-overlay">
-            <p>Scuba Diving in Belize</p>
-          </div>
+          <img src="adventure-image-3.jpg" alt="Adventure image 3">
         </div>
         <div class="adventure-photo">
-          <img src="climbing-cover-image.jpg" alt="Climber ascending up a dihedral crack">
-          <div class="adventure-overlay">
-            <p>Trad Climbing in Colorado</p>
-          </div>
+          <img src="climbing-cover-image.jpg" alt="Climbing adventure">
         </div>
-      </div>
-      <div class="adventure-button-container">
-        <a href="https://jack-huston.github.io/Outdoor-Adventures" class="btn-explore-more">
-          <i data-lucide="compass"></i>
-          <span>Explore More</span>
-        </a>
+        <div class="adventure-photo">
+          <img src="skiing-cover-image.jpg" alt="Skiing adventure">
+        </div>
+        <div class="adventure-photo">
+          <img src="travel-cover-image.jpg" alt="Travel adventure">
+        </div>
       </div>
     </div>
   </section>
@@ -390,6 +380,7 @@
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('active');
       const open = mobileMenu.classList.contains('active');
+      mobileMenuBtn.setAttribute('aria-expanded', String(open));
       menuIcon.style.display = open ? 'none' : 'block';
       closeIcon.style.display = open ? 'block' : 'none';
     });
@@ -398,6 +389,7 @@
     document.querySelectorAll('.mobile-link').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
         menuIcon.style.display = 'block';
         closeIcon.style.display = 'none';
       });
@@ -406,21 +398,40 @@
     // Desktop dropdown
     const dropdownToggleBtn = document.querySelector('.dropdown-toggle-btn');
     const dropdownContent = document.querySelector('.dropdown-content');
-    if (dropdownToggleBtn) {
+    if (dropdownToggleBtn && dropdownContent) {
       dropdownToggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        dropdownContent.classList.toggle('show');
+        const isOpen = dropdownContent.classList.toggle('show');
+        dropdownToggleBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('click', () => dropdownContent.classList.remove('show'));
+    }
+
+    // MOBILE Projects submenu toggle (FIX)
+    const mobileToggleBtn = document.querySelector('.mobile-toggle-btn');
+    const mobileSubmenu = document.getElementById('mobileProjectsSubmenu');
+
+    if (mobileToggleBtn && mobileSubmenu) {
+      mobileToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = mobileToggleBtn.getAttribute('aria-expanded') === 'true';
+        mobileToggleBtn.setAttribute('aria-expanded', String(!expanded));
+        mobileSubmenu.classList.toggle('show');
+      });
+
+      // Close submenu after selecting a sublink
+      document.querySelectorAll('#mobileProjectsSubmenu .mobile-sublink').forEach(a => {
+        a.addEventListener('click', () => {
+          mobileSubmenu.classList.remove('show');
+          mobileToggleBtn.setAttribute('aria-expanded', 'false');
+          // Also close the whole mobile menu for cleaner UX
+          mobileMenu.classList.remove('active');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          menuIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
+        });
       });
     }
-    document.addEventListener('click', () => dropdownContent && dropdownContent.classList.remove('show'));
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      navbar.style.backgroundColor = window.scrollY > 50
-        ? 'rgba(255, 255, 255, 0.95)'
-        : 'rgba(255, 255, 255, 0.9)';
-    });
 
     // 2) Copy email to clipboard + toast, then open mail client as fallback
     const emailLink = document.getElementById('emailLink');
@@ -429,7 +440,6 @@
     function showToast() {
       if (!toast) return;
       toast.classList.add('show');
-      // Hide after 2 seconds
       setTimeout(() => toast.classList.remove('show'), 2000);
     }
 
@@ -439,7 +449,6 @@
           await navigator.clipboard.writeText(text);
           return true;
         }
-        // Fallback for older browsers/insecure contexts
         const ta = document.createElement('textarea');
         ta.value = text;
         ta.setAttribute('readonly', '');
@@ -457,7 +466,6 @@
 
     if (emailLink) {
       emailLink.addEventListener('click', async (e) => {
-        // Prevent immediate navigation so copy + toast can run first
         e.preventDefault();
         const email = emailLink.dataset.email;
         const mailto = emailLink.dataset.mailto;
@@ -465,8 +473,6 @@
         const copied = await copyText(email);
         if (copied) showToast();
 
-        // Open the user's mail app (if any). Even if none exists, email is on clipboard.
-        // Short timeout to ensure the toast is visible briefly.
         setTimeout(() => {
           window.location.href = mailto;
         }, 60);
