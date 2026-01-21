@@ -7,10 +7,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
+
     gtag('config', 'G-0RF536T17S');
   </script>
-  
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jack Huston - GN&amp;C / Autonomy Portfolio</title>
@@ -39,6 +39,7 @@
             <i data-lucide="chevron-down" class="dropdown-icon"></i>
           </button>
           <div class="dropdown-content" id="desktopProjectsSubmenu">
+            <a href="https://www.jack-huston.com/Simulink-Mini-Stack/">Simulink GN&amp;C Mini-Stack</a>
             <a href="https://www.jack-huston.com/Orbit-Determination/">Orbit Determination + LQR Control</a>
             <a href="https://jack-huston.github.io/Ice-Plume-Detector">Ice Plume Detector</a>
             <a href="https://jack-huston.github.io/Propellant-Level-Sensor">Propellant Sensor</a>
@@ -70,6 +71,7 @@
       </button>
 
       <div class="mobile-dropdown-content" id="mobileProjectsSubmenu">
+        <a href="https://www.jack-huston.com/Simulink-Mini-Stack/" class="mobile-sublink">Simulink GN&amp;C Mini-Stack</a>
         <a href="https://www.jack-huston.com/Orbit-Determination/" class="mobile-sublink">Orbit Determination + LQR Control</a>
         <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="mobile-sublink">Ice Plume Detector</a>
         <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="mobile-sublink">Propellant Sensor</a>
@@ -158,6 +160,38 @@
     <div class="container-wide">
       <h2 class="section-title">Featured Projects</h2>
       <div class="projects-grid">
+        <!-- Project -1 -->
+        <a href="https://www.jack-huston.com/Simulink-Mini-Stack/" class="project-card">
+          <div class="project-image-container">
+            <img src="project-1-placeholder.jpg" alt="Simulink GN&amp;C mini-stack attitude control demo (image placeholder)" class="project-image">
+          </div>
+          <div class="project-badge-header">
+            <i data-lucide="layers"></i>
+            <span>Attitude Simulation (Simulink)</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Simulink GN&amp;C Mini-Stack (Reaction Wheels + MEKF)</h3>
+            <p class="project-description">
+              End-to-end attitude simulation built around scalar-first quaternions: noisy sensors, MEKF attitude/bias estimation, PD detumble/tracking,
+              reaction-wheel saturation and speed limiting, and repeatable maneuver scripts for clean demo videos.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Simulink</span>
+              <span class="tag">MEKF</span>
+              <span class="tag">Reaction Wheels</span>
+              <span class="tag">Quaternion Kinematics</span>
+              <span class="tag">PD Control</span>
+              <span class="tag">Sensor Models</span>
+            </div>
+            <div class="project-links-simple">
+              <span class="link-details">
+                <span>View Details</span>
+                <i data-lucide="arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
         <!-- Project 0 -->
         <a href="https://www.jack-huston.com/Orbit-Determination/" class="project-card">
           <div class="project-image-container">
@@ -373,7 +407,6 @@
         If you’re hiring for GN&amp;C, autonomy, or modeling &amp; simulation in Seattle, I’d love to chat! <br>Reach out via email or LinkedIn below.
       </p>
       <div class="contact-links">
-        <!-- 1) Mailto prefilled with subject & body. 2) JS copies email + shows toast before opening. -->
         <a
           id="emailLink"
           class="contact-card"
@@ -464,7 +497,6 @@
         a.addEventListener('click', () => {
           mobileSubmenu.classList.remove('show');
           mobileToggleBtn.setAttribute('aria-expanded', 'false');
-          // Also close the whole mobile menu for cleaner UX
           mobileMenu.classList.remove('active');
           mobileMenuBtn.setAttribute('aria-expanded', 'false');
           menuIcon.style.display = 'block';
