@@ -6,7 +6,7 @@ import html.parser
 import pathlib
 import re
 import sys
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -65,7 +65,7 @@ def check() -> int:
         if parser.videos_without_controls:
             errors.append(f"{relative}: video without controls")
         for _, href in parser.links:
-            clean = href.split("#", 1)[0].split("?", 1)[0]
+            clean = unquote(href.split("#", 1)[0].split("?", 1)[0])
             if not clean or not is_local_href(clean):
                 continue
             target = (page.parent / clean).resolve()
