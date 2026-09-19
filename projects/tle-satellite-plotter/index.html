@@ -1,0 +1,282 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0RF536T17S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0RF536T17S');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live TLE Satellite Visualizer | Jack Huston</title>
+    <meta name="description" content="A Python satellite visualization tool that propagates TLE data and renders interactive Earth-centered views." />
+    <link rel="canonical" href="https://www.jack-huston.com/projects/tle-satellite-plotter/" />
+    <meta property="og:title" content="index | Jack Huston" />
+    <meta property="og:description" content="A Python satellite visualization tool that propagates TLE data and renders interactive Earth-centered views." />
+    <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>html{scroll-behavior:smooth}</style>
+    <link rel=""stylesheet"" href=""../../assets/site.css"" />
+    <script src=""../../assets/site.js"" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="navbar">
+    <div class="navContainer">
+      <a href="../../#projects" class="navBack" aria-label="Back to Portfolio">
+        <span class="navBackIcon">←</span>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <div class="navBrand">
+        <span class="navBrandTitle">Jack Huston</span>
+      </div>
+
+      <button class="menuBtn" id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+        <span id="menuOpen">☰</span>
+        <span id="menuClose" class="hidden">✕</span>
+      </button>
+
+      <div class="navLinks" id="navLinks">
+        <a href="#overview" class="navLink">Overview</a>
+        <a href="#demos" class="navLink">Demo</a>
+        <a href="#architecture" class="navLink">Architecture</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobileMenu" id="mobileMenu">
+    <a href="#overview" class="mobileLink">Overview</a>
+    <a href="#demos" class="mobileLink">Demo</a>
+    <a href="#architecture" class="mobileLink">Architecture</a>
+  </div>
+
+  <header class="hero">
+    <div class="heroInner">
+      <div class="badgeRow">
+        <div class="badge">Python refresher</div>
+      </div>
+
+      <h1 class="heroTitle">Live TLE Satellite Visualizer</h1>
+
+      <p class="heroSubtitle">
+        Pulls TLE sets from CelesTrak, propagates positions with SGP4, and renders satellites moving in a 3D scene at their live positions.
+        My focus for the project was to re-fresh my Python experience and have a well layed out code structure, performance awareness, and clean separation across modules.
+      </p>
+
+      <div class="metaRow">
+        <div class="metaItem">Python</div>
+        <div class="metaItem">CelesTrak TLE feed</div>
+        <div class="metaItem">SGP4 propagation</div>
+        <div class="metaItem">VisPy rendering</div>
+      </div>
+
+      <div class="heroActions">
+        <a class="btnPrimary" href="#demos">Watch the demo</a>
+        <a class="btnSecondary" href="#architecture">Read architecture</a>
+        <a class="btnSecondary" href="https://github.com/Jack-Huston/TLE-Satellite-Plotter/tree/main/Python%20Code" target="_blank" rel="noopener noreferrer">
+          GitHub repo
+        </a>
+      </div>
+
+      <div class="heroMedia">
+        <img src="images/program_image.png" alt="Satellite view around Earth" loading="lazy" />
+        <div class="caption">Single view: Earth context plus satellite motion.</div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="overview" class="section sectionWhite">
+      <div class="container">
+        <h2 class="sectionTitle">Project overview</h2>
+
+        <div class="card">
+          <p class="lead">
+            The app fetches TLE text, parses satellite records, propagates to the current time, then updates a marker cloud in a live render loop.
+            Cache logic keeps network traffic low during iteration.
+          </p>
+
+          <div class="grid">
+            <div class="miniCard">
+              <div class="miniTitle">Input</div>
+              <div class="miniText">CelesTrak TLE text, grouped as name, line 1, line 2.</div>
+            </div>
+
+            <div class="miniCard">
+              <div class="miniTitle">Compute</div>
+              <div class="miniText">Batch SGP4 propagation to ECI position vectors for the current timestamp.</div>
+            </div>
+
+            <div class="miniCard">
+              <div class="miniTitle">Output</div>
+              <div class="miniText">3D visualization showing satellites moving relative to Earth.</div>
+            </div>
+          </div>
+
+          <details class="details" open>
+            <summary class="detailsSummary">Example TLE lines used during development</summary>
+            <pre class="codeBlock"><code>STARLINK-33811
+1 63504U 25071M   26023.28614915  .00041226  00000+0  13958-2 0  9994
+2 63504  53.1611 351.1581 0001773  86.6161 273.5043 15.30212771 45751
+
+STARLINK-33825
+1 63505U 25071N   26024.21202195  .00069628  00000+0  23363-2 0  9999
+2 63505  53.1620 346.2700 0001933  73.6037 286.5177 15.30265358 45960</code></pre>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="demos" class="section">
+      <div class="containerWide">
+        <h2 class="sectionTitle">Demo</h2>
+
+        <div class="demoSingle">
+          <div class="demoHeader">
+            <h3 class="demoTitle">Live Satellite Motion</h3>
+            <p class="demoText">
+              Python was chosen for its balance of readability and performance. The app handles 14,000+ satellites at 30+ FPS on a standard laptop simulatenously. Here in a live view, if you look closely you can see the smooth updating of all satellite positions at 30 FPS with no lag.
+              Satellite positions are updated in real-time using SGP4 propagation based on TLE data fetched from CelesTrak.  
+            </p>
+          </div>
+
+          <div class="mediaFrame">
+            <video controls preload="none" class="demoVideo" src="videos/live_view.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="caption">Real-time satellite positions move slowly. Look closely to see the smooth position updates.</div>
+          </div>
+        </div>
+
+        <div class="demoSingle">
+          <div class="demoHeader">
+            <h3 class="demoTitle">Time Lapse Motion</h3>
+            <p class="demoText">
+              I've also included a time-lapse version of the same run. This speeds up satellite motion so you can see how they orbit Earth over time and that they are actually following expected orbital motion.
+            </p>
+          </div>
+
+          <div class="mediaFrame">
+            <video controls preload="none" class="demoVideo" src="videos/time_lapse_view.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="caption">Time-lapse video to observe orbital motion.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section sectionWhite">
+      <div class="containerWide">
+        <h2 class="sectionTitle">Technical architecture</h2>
+
+        <div class="card">
+          <p class="lead">
+            The code splits responsibilities across small modules so each file stays readable and testable.
+          </p>
+
+          <div class="flow">
+            <div class="flowStep">
+              <div class="flowLeft">data_source.py</div>
+              <div class="flowRight">
+                Fetches TLE text from CelesTrak and manages local caching with a TTL.
+              </div>
+            </div>
+
+            <div class="flowStep">
+              <div class="flowLeft">elements.py</div>
+              <div class="flowRight">
+                Parses TLE triples and builds SGP4 satellite records.
+              </div>
+            </div>
+
+            <div class="flowStep">
+              <div class="flowLeft">propagation.py</div>
+              <div class="flowRight">
+                Converts time to Julian date and propagates all satellites to ECI positions in batch.
+              </div>
+            </div>
+
+            <div class="flowStep">
+              <div class="flowLeft">sat_viz_app.py</div>
+              <div class="flowRight">
+                Owns the VisPy scene, camera controls, and the update loop that moves markers each tick.
+              </div>
+            </div>
+
+            <div class="flowStep">
+              <div class="flowLeft">main.py</div>
+              <div class="flowRight">
+                Wires config, data fetch, propagation, then launches the viewer.
+              </div>
+            </div>
+          </div>
+
+          <div class="ctaRow">
+            <a class="btnPrimary" href="https://github.com/Jack-Huston/TLE-Satellite-Plotter/tree/main/Python%20Code" target="_blank" rel="noopener noreferrer">
+              Open the code
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="container contactInner">
+        <h2 class="contactTitle">Connect</h2>
+        <p class="contactSubtitle">
+          Want to talk about Python tools, simulation work, or visualization workflows. Reach out.
+        </p>
+
+        <div class="contactRow">
+          <a class="contactBtn" href="mailto:jackthuston1@gmail.com?subject=Portfolio%20Contact&amp;body=Hi%20Jack,%0D%0A%0D%0A">
+            Email
+          </a>
+          <a class="contactBtn" href="https://www.linkedin.com/in/jack-huston/" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <a class="contactBtn" href="../../#projects">
+            More projects
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footerInner">
+      <span>© 2026 Jack Huston</span>
+      <span class="footerSep">•</span>
+      <span>Live TLE Satellite Visualizer</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      const open = mobileMenu.classList.contains('active');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuOpen.classList.toggle('hidden', open);
+      menuClose.classList.toggle('hidden', !open);
+    });
+
+    document.querySelectorAll('.mobileLink').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuOpen.classList.remove('hidden');
+        menuClose.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

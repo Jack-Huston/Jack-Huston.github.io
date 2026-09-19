@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0RF536T17S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0RF536T17S');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulink GN&amp;C Mini-Stack - Jack Huston</title>
+    <meta name="description" content="A MATLAB and Simulink guidance, navigation, and control mini-stack with estimation, control, and Monte Carlo demonstrations." />
+    <link rel="canonical" href="https://www.jack-huston.com/projects/simulink-mini-stack/" />
+    <meta property="og:title" content="index | Jack Huston" />
+    <meta property="og:description" content="A MATLAB and Simulink guidance, navigation, and control mini-stack with estimation, control, and Monte Carlo demonstrations." />
+    <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>html{scroll-behavior:smooth}</style>
+    <link rel=""stylesheet"" href=""../../assets/site.css"" />
+    <script src=""../../assets/site.js"" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../#projects" class="nav-back-btn" aria-label="Back to Portfolio">
+        <i data-lucide="arrow-left"></i>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <div class="nav-brand">
+        <i data-lucide="satellite" class="icon-nav"></i>
+        <span>Jack Huston</span>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-controls="mobileMenu" aria-expanded="false">
+        <i data-lucide="menu" id="menuIcon"></i>
+        <i data-lucide="x" id="closeIcon" style="display:none;"></i>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#demos" class="nav-link">Demos</a>
+        <a href="#technical" class="nav-link">Technical</a>
+        <a href="#derivations" class="nav-link">Derivations</a>
+        <a href="#validation" class="nav-link">Validation</a>
+        <a href="#next" class="nav-link">Next</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#overview" class="mobile-link">Overview</a>
+    <a href="#demos" class="mobile-link">Demos</a>
+    <a href="#technical" class="mobile-link">Technical</a>
+    <a href="#derivations" class="mobile-link">Derivations</a>
+    <a href="#validation" class="mobile-link">Validation</a>
+    <a href="#next" class="mobile-link">Next</a>
+  </div>
+
+  <section id="main-content" class="project-hero">
+    <div id="main-content" class="project-hero-content">
+      <div class="project-badge">
+        <i data-lucide="crosshair"></i>
+        <span>Attitude Estimation and Control</span>
+      </div>
+
+      <h1 class="project-hero-title">Simulink GN&amp;C Mini-Stack</h1>
+
+      <p class="project-hero-subtitle">
+        A CubeSat-class attitude determination and control simulation in Simulink. Quaternion state, reaction wheels, sampled sensors, PD control, and an MEKF.
+        Built to support GN&amp;C and autonomy roles in Seattle.
+      </p>
+      <div class="project-meta">
+        <div class="meta-item">
+          <i data-lucide="settings"></i>
+          <span>MATLAB + Simulink</span>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="cpu"></i>
+          <span>Linear Control</span>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="between-vertical-start"></i>
+          <span>Kalman Filtering</span>
+        </div>
+      </div>
+
+      <div id="main-content" class="hero-cta">
+        <a href="#demos" class="btn-primary">
+          <i data-lucide="play"></i>
+          <span>Jump to Demos</span>
+        </a>
+        <a href="#technical" class="btn-secondary">See Architecture</a>
+        <a href="https://github.com/Jack-Huston/Simulink-Mini-Stack/tree/main/Mini_Stack_Simulink_Project" class="btn-secondary">Github Repo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="file-text" class="icon-title"></i>
+        Project Overview
+      </h2>
+
+      <div class="overview-card">
+        <p class="overview-lead">
+          This project models an end-to-end rigid-body spacecraft attitude control loop in Simulink, using scalar-first quaternions and body rates. The sensor models include sampling and noise, and the reaction wheel actuators include torque saturation plus wheel speed tracking and limits. A PD controller handles detumble and attitude tracking, while an MEKF estimates attitude and gyro bias. The demo videos below show closed-loop stability, tuning tradeoffs, and commanded maneuvers including attitude hold and roll reversal.
+        </p>
+
+        <div class="quick-grid">
+          <div class="quick-item">
+            <div class="quick-top">
+              <i data-lucide="rotate-3d"></i>
+              <h3>State</h3>
+            </div>
+            <p>Quaternion (scalar-first) and body rates.</p>
+          </div>
+
+          <div class="quick-item">
+            <div class="quick-top">
+              <i data-lucide="radar"></i>
+              <h3>Sensors</h3>
+            </div>
+            <p>Gyro at 100 Hz, Star tracker at 5 Hz with a valid-data pulse.</p>
+          </div>
+
+          <div class="quick-item">
+            <div class="quick-top">
+              <i data-lucide="disc-3"></i>
+              <h3>Actuators</h3>
+            </div>
+            <p>Three reaction wheels with torque limit, inertia, speed tracking, speed limit logic.</p>
+          </div>
+
+          <div class="quick-item">
+            <div class="quick-top">
+              <i data-lucide="sliders"></i>
+              <h3>Control</h3>
+            </div>
+            <p>PD detumble and tracking. Gains set from a second-order target response.</p>
+          </div>
+
+          <div class="quick-item">
+            <div class="quick-top">
+              <i data-lucide="cpu"></i>
+              <h3>Estimation</h3>
+            </div>
+            <p>MEKF (error-state EKF) to handle non-linear quanternion data</p>
+          </div>
+
+          <div class="quick-item">
+            <div class="quick-top">
+              <i data-lucide="check-circle"></i>
+              <h3>Validation</h3>
+            </div>
+            <p>Seeded RNG, repeatable runs, unit-test mindset. A full Monte Carlo test suite planned next.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-card">
+        <h3 class="evidence-title">
+          <i data-lucide="code"></i>
+          System Parameters
+        </h3>
+
+        <div class="evidence-grid">
+          <div class="evidence-block">
+            <h4>Timing and sampling</h4>
+            <ul class="evidence-list">
+              <li>Base simulation step: \(T_s = 0.01\) s</li>
+              <li>Gyro rate: \(T_{s,\text{gyro}} = 0.01\) s</li>
+              <li>Star tracker rate: \(T_{s,\text{star}} = 0.2\) s</li>
+              <li>Sim end time: \(t_\text{end} = 120\) s</li>
+            </ul>
+          </div>
+
+          <div class="evidence-block">
+            <h4>Dynamics and initial conditions</h4>
+            <ul class="evidence-list">
+              <li>Inertia: \(J = \mathrm{diag}([0.02, 0.02, 0.01])\) kg m\(^2\)</li>
+              <li>Initial attitude: \(q_0 = [1,0,0,0]^T\)</li>
+              <li>Initial rates: \(\omega_0 = [-53, +78, +82]^T\) deg/s</li>
+              <li>Constant disturbance torque: \([10^{-5}, -2\cdot10^{-5}, 10^{-5}]^T\) N m</li>
+            </ul>
+          </div>
+
+          <div class="evidence-block">
+            <h4>Reaction wheels</h4>
+            <ul class="evidence-list">
+              <li>Torque limit: \(\tau_{\max} = 0.01\) N m per axis</li>
+              <li>Wheel inertia: \(J_\text{wheel} = 2\cdot10^{-4}\) kg m\(^2\)</li>
+              <li>Speed limit: \(\Omega_{\max} = 6000\) rpm</li>
+            </ul>
+          </div>
+
+          <div class="evidence-block">
+            <h4>Noise and bias</h4>
+            <ul class="evidence-list">
+              <li>Gyro noise: \(0.02\) deg/s 1-sigma</li>
+              <li>Gyro bias init: \(0.005\) deg/s 1-sigma</li>
+              <li>Bias random walk: \(0.0002\) deg/\(\sqrt{\text{s}}\)</li>
+              <li>Star tracker noise: \(0.01\) deg 1-sigma</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demos" class="section">
+    <div class="container-wide">
+      <h2 class="section-title">
+        <i data-lucide="video" class="icon-title"></i>
+        Demo Results
+      </h2>
+
+      <div class="demo-grid">
+        <article class="demo-card">
+          <div class="demo-header">
+            <div class="demo-badge">
+              <i data-lucide="toggle-left"></i>
+              <span>Demo 1</span>
+            </div>
+            <h3 class="demo-title">Controller off vs on</h3>
+            <p class="demo-text">
+              This clip shows the same initial tumble for a spacecraft with, and for a spacecraft without a controller. The left side runs without control.
+              The right side runs with the PD loop enabled at t = 5 seconds. The controlled case detumbles quickly and holds attitude under a constant disturbance torque.
+            </p>
+          </div>
+
+          <div class="media-frame">
+            <video controls preload="none"
+              class="demo-video"
+              src="videos/Controller Comparison Video.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+            <div class="media-caption">Left: controller off. Right: controller on.</div>
+          </div>
+
+          <div class="demo-points">
+            <div class="pill"><i data-lucide="activity"></i><span>Initial rates: \([-53, +78, +82]\) deg/s</span></div>
+            <div class="pill"><i data-lucide="alert-triangle"></i><span>Disturbance torque enabled</span></div>
+            <div class="pill"><i data-lucide="disc-3"></i><span>Wheel torque saturation enforced</span></div>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <div class="demo-header">
+            <div class="demo-badge">
+              <i data-lucide="sliders"></i>
+              <span>Demo 2</span>
+            </div>
+            <h3 class="demo-title">Tuning tradeoffs</h3>
+            <p class="demo-text">
+              This clip overlays three responses. Kp and Kd gains were calculated via an analytical derivation. Underdamped settles fast but overshoots. Overdamped avoids overshoot but settles slow.
+              The target is near critical damping as it gives a clean response and a short settling time. The only variation changed between runs was the set damping ratio.
+            </p>
+          </div>
+
+          <div class="media-frame">
+            <video controls preload="none"
+              class="demo-video"
+              src="videos/Tuning Demo and Comparison.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+            <div class="media-caption">Underdamped, critically damped, and overdamped test cases.</div>
+          </div>
+
+          <div class="demo-points">
+            <div class="pill"><i data-lucide="target"></i><span>Design knob: \(\zeta\) and \(T_s\)</span></div>
+            <div class="pill"><i data-lucide="gauge"></i><span>Goal: fast settle, low overshoot</span></div>
+            <div class="pill"><i data-lucide="check-circle"></i><span>Gains set from the derivation below</span></div>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <div class="demo-header">
+            <div class="demo-badge">
+              <i data-lucide="navigation"></i>
+              <span>Demo 3</span>
+            </div>
+            <h3 class="demo-title">Attitude hold with controlled roll reversal</h3>
+            <p class="demo-text">
+              This clip steps through three fixed attitutes and then returns home. At each attitude, the controller settles first, then commands a constant body-rate roll about a single axis, then reverses the roll direction, then settles again. Attitude commands use scalar-first quaternions, body-rate commands are in rad/s.
+            </p>
+          </div>
+
+          <div class="media-frame">
+            <video controls preload="none"
+              class="demo-video"
+              src="videos/Attitude and Body Rates Demo.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+            <div class="media-caption">Tracking commanded attitudes with settle windows and roll reversal.</div>
+          </div>
+
+          <div class="quat-grid">
+            <div class="quat-card">
+              <div class="quat-head"><i data-lucide="rotate-3d"></i><span>\(q_{x90}\)</span></div>
+              <div class="quat-math">\([0.70710678,\ 0.70710678,\ 0,\ 0]^T\)</div>
+              <div class="quat-sub">90 deg about X</div>
+            </div>
+            <div class="quat-card">
+              <div class="quat-head"><i data-lucide="rotate-3d"></i><span>\(q_{y90}\)</span></div>
+              <div class="quat-math">\([0.70710678,\ 0,\ 0.70710678,\ 0]^T\)</div>
+              <div class="quat-sub">90 deg about Y</div>
+            </div>
+            <div class="quat-card">
+              <div class="quat-head"><i data-lucide="rotate-3d"></i><span>\(q_{z90}\)</span></div>
+              <div class="quat-math">\([0.70710678,\ 0,\ 0,\ 0.70710678]^T\)</div>
+              <div class="quat-sub">90 deg about Z</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="technical" class="section section-white">
+    <div class="container-wide">
+      <h2 class="section-title">
+        <i data-lucide="layers" class="icon-title"></i>
+        Technical Architecture
+      </h2>
+
+      <!-- Top-level block diagram now spans full width -->
+      <div class="arch-top">
+        <h3 class="arch-title">Top-level block diagram</h3>
+        <p class="arch-text">
+          The architecture follows a standard ADCS stack: the sensors drive the estimator, the controller uses the estimated attitude and rate, and the reaction wheels apply torque to the rigid-body plant. A scenario block provides the commanded attitudes and disturbances used in the demos.
+        </p>
+
+        <figure class="figure figure-wide">
+          <img src="images/architecture_overview.png" alt="Top-level architecture diagram for the Simulink GN&amp;C mini-stack" loading="lazy">
+          <figcaption class="figure-caption">End-to-end data flow. Sensors, MEKF, control law, reaction wheels, rigid-body dynamics.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Subsystem browser moved below -->
+      <div class="arch-bottom">
+        <h3 class="arch-title">Subsystem browser</h3>
+        <p class="arch-text">
+          Use the menu to jump between subsystem layouts. Each panel includes a short intent statement and the diagram screenshot.
+        </p>
+
+        <div class="tabs tabs-wide">
+          <input class="tab-radio" type="radio" name="subsys" id="tab-plant" checked>
+          <input class="tab-radio" type="radio" name="subsys" id="tab-actuator">
+          <input class="tab-radio" type="radio" name="subsys" id="tab-sensors">
+          <input class="tab-radio" type="radio" name="subsys" id="tab-estimator">
+          <input class="tab-radio" type="radio" name="subsys" id="tab-controller">
+          <input class="tab-radio" type="radio" name="subsys" id="tab-scenario">
+          <input class="tab-radio" type="radio" name="subsys" id="tab-orbit">
+
+          <aside class="tab-list" aria-label="Subsystem list">
+            <label class="tab-item tab-item-plant" for="tab-plant">
+              <span class="tab-icon"><i data-lucide="leaf"></i></span>
+              <span class="tab-text">Plant_Attitude</span>
+            </label>
+            <label class="tab-item" for="tab-actuator">
+              <span class="tab-icon"><i data-lucide="disc-3"></i></span>
+              <span class="tab-text">Actuator_RW</span>
+            </label>
+            <label class="tab-item" for="tab-sensors">
+              <span class="tab-icon"><i data-lucide="radar"></i></span>
+              <span class="tab-text">Sensors</span>
+            </label>
+            <label class="tab-item" for="tab-estimator">
+              <span class="tab-icon"><i data-lucide="cpu"></i></span>
+              <span class="tab-text">Estimator (MEKF)</span>
+            </label>
+            <label class="tab-item" for="tab-controller">
+              <span class="tab-icon"><i data-lucide="sliders"></i></span>
+              <span class="tab-text">Controller</span>
+            </label>
+            <label class="tab-item" for="tab-scenario">
+              <span class="tab-icon"><i data-lucide="flag"></i></span>
+              <span class="tab-text">Scenario_Command</span>
+            </label>
+            <label class="tab-item" for="tab-orbit">
+              <span class="tab-icon"><i data-lucide="orbit"></i></span>
+              <span class="tab-text">Orbit_Propagator</span>
+            </label>
+          </aside>
+          <section class="tab-panels">
+            <article class="tab-panel" id="panel-plant">
+              <div class="panel-head">
+                <h4>Plant</h4>
+                <p>
+                  This subsystem is the attitude “physics” and supports rigid-body rotational dynamics with scalar-first quaternion kinematics. It integrates the spacecraft attitude and body rates while applying wheel torque and any external disturbance torque.
+                </p>
+              </div>
+              <figure class="figure figure-tight figure-wide">
+                <img src="images/plant_attitude.png" alt="Simulink subsystem diagram for Plant_Attitude" loading="lazy">
+                <figcaption class="figure-caption">
+                  Rigid-body dynamics: \(J\dot{\omega} + \omega \times (J\omega) = \tau\). Quaternion kinematics use a scalar-first convention.
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="tab-panel" id="panel-actuator">
+              <div class="panel-head">
+                <h4>Actuator RW</h4>
+                <p>
+                  Reaction wheel torque commands are converted into wheel acceleration, with per-axis torque saturation. Wheel speed is integrated using the rotor inertia and clamped to a maximum speed so the model behaves like a "real" actuator.
+                </p>
+              </div>
+              <figure class="figure figure-tight figure-wide">
+                <img src="images/actuator_rw.png" alt="Simulink subsystem diagram for Actuator_RW" loading="lazy">
+                <figcaption class="figure-caption">
+                  Actuation limits follow the initialization: \(\tau_{\max}=0.01\) N m and \(\Omega_{\max}=6000\) rpm.
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="tab-panel" id="panel-sensors">
+              <div class="panel-head">
+                <h4>Sensors (gyro and star tracker)</h4>
+                <p>
+                  The gyro runs at 100 Hz and includes white noise, an initial bias, and a bias random walk. The star tracker runs at 5 Hz and produces a “valid” pulse, which the estimator uses to decide when to accept star tracker measurement updates.
+                </p>
+              </div>
+              <figure class="figure figure-tight figure-wide">
+                <img src="images/sensors.png" alt="Simulink subsystem diagram for Sensors" loading="lazy">
+                <figcaption class="figure-caption">
+                  Sampling rates follow the code: \(T_{s,\text{gyro}}=0.01\) s and \(T_{s,\text{star}}=0.2\) s.
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="tab-panel" id="panel-estimator">
+              <div class="panel-head">
+                <h4>Estimator (MEKF)</h4>
+                <p>
+                  The MEKF is an error-state EKF that estimates attitude and gyro bias. Propagation runs at the base rate using the gyro, and corrections are applied only when a star-tracker measurement is marked valid.
+                </p>
+              </div>
+              <figure class="figure figure-tight figure-wide">
+                <img src="images/estimator_mekf.png" alt="Simulink subsystem diagram for Estimator (MEKF)" loading="lazy">
+                <figcaption class="figure-caption">
+                  MEKF structure: propagate with gyro, correct on star-tracker pulses, and estimate bias with a random-walk process model.
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="tab-panel" id="panel-controller">
+              <div class="panel-head">
+                <h4>Controller (PD detumble and tracking)</h4>
+                <p>
+                  The controller uses a PD law that drives the log-mapped attitude error toward zero while damping body rates. Gains are set from a second-order target model, which ties \(K_p\) and \(K_d\) to the chosen settling time and damping ratio \(\zeta\).
+                </p>
+              </div>
+              <figure class="figure figure-tight figure-wide">
+                <img src="images/controller_pd_tracking.png" alt="Simulink subsystem diagram for Controller" loading="lazy">
+                <figcaption class="figure-caption">
+                  The control law combines attitude error (via the log map) and rate error to produce wheel torque commands.
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="tab-panel" id="panel-scenario">
+              <div class="panel-head">
+                <h4>Scenario_Command</h4>
+                <p>
+                  This block determines the desired attitude and body rate throughout the simulation. It schedules the commanded attitude targets, and applies the disturbance torque used in the demos.
+                </p>
+              </div>
+              <figure class="figure figure-tight figure-wide">
+                <img src="images/scenario_command.png" alt="Simulink subsystem diagram for Scenario_Command" loading="lazy">
+                <figcaption class="figure-caption">
+                  Scenario sequencing: settle at a command, switch to the next command, settle again, and repeat.
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="tab-panel" id="panel-orbit">
+              <div class="panel-head">
+                <h4>Orbit_Propagator</h4>
+                <p>
+                  This subsystem propagates position and velocity for visualization and context, but it does not feed back into the attitude loop. The run initializes with \(p_0=[0,6878137,0]^T\) and \(v_0=[-7612.608,0,0]^T\).
+                </p>
+              </div>
+              <figure class="figure figure-tight figure-wide">
+                <img src="images/orbit_propagator.png" alt="Simulink subsystem diagram for Orbit_Propagator" loading="lazy">
+                <figcaption class="figure-caption">
+                  Orbit propagation for scene motion; attitude control remains a separate rigid-body loop.
+                </figcaption>
+              </figure>
+            </article>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="derivations" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="sigma" class="icon-title"></i>
+        PD Gain Derivation
+      </h2>
+
+      <div class="deriv-card">
+        <p class="deriv-lead">
+          The goal of this controller was to have an easy to adjust damping ratio set the performance and response characteristics.
+          You can first set a settling time target and a damping ratio target, which can then be used to compute \(K_p\) and \(K_d\) gains for the system.
+        </p>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">1) Start from rigid-body rotational dynamics</h3>
+          <p class="deriv-text">
+            Euler’s rotational equation gives the relationship between torque and angular acceleration.
+            The plant uses spacecraft inertia \(J\), body rate \(\omega\), and total applied torque \(\tau\).
+          </p>
+          <div class="math-block">
+            \[
+              J\dot{\omega} + \omega \times (J\omega) = \tau
+            \]
+          </div>
+          <p class="deriv-text">
+            For a reaction-wheel controlled spacecraft, the commanded wheel torque drives the body torque with opposite sign.
+            The controller output is \(u\) and the plant torque is \(\tau = -u\).
+          </p>
+          <div class="math-block">
+            \[
+              J\dot{\omega} + \omega \times (J\omega) = -u
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">2) Define the quaternion convention and attitude error</h3>
+          <p class="deriv-text">
+            The state uses a scalar-first quaternion \(q = [q_0,\ q_v^T]^T\), with \(q_v \in \mathbb{R}^3\).
+            Quaternion kinematics relate rate to quaternion derivative.
+          </p>
+
+          <div class="math-block">
+            \[
+              q =
+              \begin{bmatrix}
+              q_0 \\
+              q_v
+              \end{bmatrix},
+              \quad
+              \dot{q}_0 = -\frac{1}{2}q_v^T\omega,
+              \quad
+              \dot{q}_v = \frac{1}{2}\left(q_0 I_3 + [q_v]_\times\right)\omega
+            \]
+          </div>
+
+          <p class="deriv-text">
+            The attitude error quaternion uses the standard composition rule.
+          </p>
+
+          <div class="math-block">
+            \[
+              q_e = q_d^{-1} \otimes q =
+              \begin{bmatrix}
+              q_{e0}\\
+              q_{ev}
+              \end{bmatrix}
+            \]
+          </div>
+
+          <p class="deriv-text">
+            As quaternions have a double cover, \(q\) and \(-q\) represent the same attitude.
+            To enforce the short rotation, I flip the error quaternion when the scalar term is negative. Otherwise, instead of commanding a 45° rotation, the system could command a -315° rotation, which would be significantly less efficient.
+          </p>
+
+          <div class="math-block">
+            \[
+              q_{e0} &lt; 0 \Rightarrow q_e \leftarrow -q_e
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">3) Convert quaternion error to a vector error using the log map</h3>
+          <p class="deriv-text">
+            A PD law needs an error vector in \(\mathbb{R}^3\).
+            The log map converts the error quaternion into an axis-angle rotation and then into a 3D error vector.
+          </p>
+
+          <div class="math-block">
+            \[
+              s = q_{e0}, \quad v = q_{ev}, \quad r = \lVert v \rVert
+            \]
+            \[
+              \theta = 2\ \mathrm{atan2}(r, s)
+            \]
+            \[
+              \hat{a} =
+              \begin{cases}
+              v/r, &amp; r &gt; \epsilon \\
+              \text{any unit vector}, &amp; r \le \epsilon
+              \end{cases}
+            \]
+            \[
+              e = \theta \hat{a}
+            \]
+          </div>
+
+          <p class="deriv-text">
+            This  avoids the small-angle issues you hit with raw quaternion vector parts when errors get larger and is able to produces an error direction and magnitude in one vector.
+          </p>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">4) Apply the PD control law and linearize for tuning</h3>
+          <p class="deriv-text">
+            We define the rate error \(\tilde{\omega} = \omega - \omega_d\). For detumble and hold, typically \(\omega_d = 0\), although this can be set within the scenario command.
+            For a general PD control law:
+          </p>
+
+          <div class="math-block">
+            \[
+              u = K_p e + K_d \tilde{\omega}
+            \]
+          </div>
+
+          <p class="deriv-text">
+            For gain selection, I chose to use a small-angle approximation and ignore the cross-coupling term to reduce complexity and be able to form a spring-dampener system.
+          </p>
+
+          <div class="math-block">
+            \[
+              J\dot{\omega} \approx -u
+            \]
+          </div>
+
+          <p class="deriv-text">
+            With small attitude errors, the error kinematics reduce to \(\dot{e} \approx -\omega\) for a zero command rate.
+            We can then substitute \(\omega \approx -\dot{e}\) and \(\dot{\omega} \approx -\ddot{e}\) into the dynamics.
+          </p>
+
+          <div class="math-block">
+            \[
+              J(-\ddot{e}) = -K_p e - K_d(-\dot{e})
+            \]
+            \[
+              J\ddot{e} + K_d \dot{e} + K_p e = 0
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">5) Match to a standard second-order system</h3>
+          <p class="deriv-text">
+            If \(J\), \(K_p\), and \(K_d\) are diagonal (which they are in this system), each axis behaves like an independent second-order system.
+            We can then compare the closed-loop form to the standard template.
+          </p>
+
+          <div class="math-block">
+            \[
+              \ddot{e}_i + 2\zeta_i \omega_{n,i}\dot{e}_i + \omega_{n,i}^2 e_i = 0
+            \]
+            \[
+              \omega_{n,i}^2 = \frac{K_{p,i}}{J_i},
+              \quad
+              2\zeta_i\omega_{n,i} = \frac{K_{d,i}}{J_i}
+            \]
+          </div>
+
+          <p class="deriv-text">
+            With these terms broken out, we can solve for the response gains in terms of inertia, natural frequency, and damping ratio.
+          </p>
+
+          <div class="math-block">
+            \[
+              K_{p,i} = J_i \omega_{n,i}^2,
+              \quad
+              K_{d,i} = 2\zeta_i J_i \omega_{n,i}
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">6) Use the 2 percent settling-time approximation</h3>
+          <p class="deriv-text">
+            A common design rule for a second-order system is the 2 percent settling-time approximation:
+          </p>
+
+          <div class="math-block">
+            \[
+              T_{s,i} \approx \frac{4}{\zeta_i \omega_{n,i}}
+            \]
+          </div>
+
+          <p class="deriv-text">
+            If we substitute \(\omega_{n,i} = 4/(\zeta_i T_{s,i})\) into the gain expressions, this produces our direct tuning knobs: pick \(T_s\) and \(\zeta\), we can compute \(K_p\) and \(K_d\).
+          </p>
+
+          <div class="math-block">
+            \[
+              K_{p,i} = J_i\left(\frac{4}{\zeta_i T_{s,i}}\right)^2,
+              \quad
+              K_{d,i} = \frac{8J_i}{T_{s,i}}
+            \]
+          </div>
+
+          <p class="deriv-text">
+            In matrix form with diagonal \(J\), this matches the MATLAB initialization:
+          </p>
+
+          <div class="math-block">
+            \[
+              K_p = J\left(\frac{4}{\zeta T_s}\right)^2,
+              \quad
+              K_d = J\left(\frac{8}{T_s}\right)
+            \]
+          </div>
+
+          <div class="deriv-callout">
+            <div class="callout-icon"><i data-lucide="check-circle"></i></div>
+            <div class="callout-text">
+              <div class="callout-title">Benefits</div>
+              <p>
+                With this relationship established, you can get predictable tuning behavior. Smaller \(T_s\) increases \(K_p\) and \(K_d\). Lower \(\zeta\) increases overshoot.
+                This equation setup allows for easy response adjustments as can be seen in the Demo 2 visualization.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="open-loop" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="activity" class="icon-title"></i>
+        Open Loop Transfer Function
+      </h2>
+
+      <div class="deriv-card">
+        <p class="deriv-lead">
+          This section derives the open loop transfer function used for frequency domain analysis.
+          The goal is to express the attitude error dynamics as a standard unity feedback loop (where the output signal is fed back to the input and results in a transfer function H(s) = 1) so we can compute
+          gain and phase margins with a Bode plot.
+        </p>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">1) Start from the linearized rigid body plant</h3>
+          <p class="deriv-text">
+            For gain and margin analysis we use the same linearization assumptions as the tuning derivation and ignore the nonlinear cross coupling term and treat each axis independently with diagonal inertia.
+            With the reaction wheel sign convention used in the simulation, body torque is the negative of the controller output.
+          </p>
+          <div class="math-block">
+            \[
+              J\dot{\omega} \approx -u
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">2) Relate small angle attitude error to body rate</h3>
+          <p class="deriv-text">
+            The controller uses a quaternion error mapped into a 3D vector error using the log map. In the small angle regime,
+            the error kinematics reduce to a first order relationship between the error vector and the body rate for a zero command rate (desired error = 0).
+          </p>
+          <div class="math-block">
+            \[
+              \dot{e} \approx -\omega,
+              \quad
+              \omega \approx -\dot{e},
+              \quad
+              \dot{\omega} \approx -\ddot{e}
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">3) Apply the PD control law</h3>
+          <p class="deriv-text">
+            With rate command \(\omega_d = 0\), the rate error is \(\tilde{\omega} = \omega\).
+            The PD law is written directly in terms of the error vector and body rate.
+          </p>
+          <div class="math-block">
+            \[
+              u = K_p e + K_d \omega
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">4) Form the closed loop differential equation</h3>
+          <p class="deriv-text">
+            Substitute the PD law into the linearized plant, then substitute \(\omega \approx -\dot{e}\) and \(\dot{\omega}\approx -\ddot{e}\).
+            This produces a standard second order homogeneous equation for each axis.
+          </p>
+          <div class="math-block">
+            \[
+              J(-\ddot{e}) = -\left(K_p e + K_d(-\dot{e})\right)
+            \]
+            \[
+              J\ddot{e} + K_d \dot{e} + K_p e = 0
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">5) Identify the unity feedback loop form</h3>
+          <p class="deriv-text">
+            A unity feedback loop has the characteristic equation \(1 + C(s)P(s) = 0\).
+            The rigid body plant from torque to attitude error behaves like a double integrator with gain \(1/J\).
+            The PD controller is \(C(s)=K_p + K_d s\).
+          </p>
+          <div class="math-block">
+            \[
+              P(s) = \frac{E(s)}{U(s)} = \frac{1}{J s^2}
+            \]
+            \[
+              C(s) = \frac{U(s)}{E(s)} = K_p + K_d s
+            \]
+          </div>
+        </div>
+
+        <div class="deriv-step">
+          <h3 class="deriv-title">6) Open loop transfer function</h3>
+          <p class="deriv-text">
+            The open loop transfer function is the product of the controller and plant.
+            With diagonal inertia and gains, this expression applies per axis.
+          </p>
+          <div class="math-block">
+            \[
+              L(s) = C(s)P(s) = \left(K_p + K_d s\right)\frac{1}{J s^2}
+              =
+              \frac{K_d s + K_p}{J s^2}
+            \]
+          </div>
+          <p class="deriv-text">
+            The Bode plot below uses this \(L(s)\) to compute gain and phase margins. The next section provides the computed margins from the simulation gains.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="validation" class="section section-white">
+    <div class="container-wide">
+      <h2 class="section-title">
+        <i data-lucide="clipboard-check" class="icon-title"></i>
+        Validation Approach
+      </h2>
+
+      <div class="val-grid">
+        <div class="val-card">
+          <div class="val-head">
+            <i data-lucide="repeat"></i>
+            <h3>Reproducibility</h3>
+          </div>
+          <p>
+            The simulation seeds the RNG and uses fixed sampling periods. This keeps runs repeatable while I iterate on estimator and control logic.
+          </p>
+          <ul class="checklist">
+            <li><span class="check ok"><i data-lucide="check"></i></span><span>Seeded RNG using twister, seed = 1</span></li>
+            <li><span class="check ok"><i data-lucide="check"></i></span><span>Fixed step size and sensor sample rates</span></li>
+            <li><span class="check ok"><i data-lucide="check"></i></span><span>Centralized parameter initialization script</span></li>
+          </ul>
+        </div>
+
+        <div class="val-card">
+          <div class="val-head">
+            <i data-lucide="line-chart"></i>
+            <h3>Metrics tracked during runs</h3>
+          </div>
+          <p>
+            These plots are the first line of defense to catch sign errors, estimator divergences, and response errors. The script tracks and plots:
+          </p>
+          <ul class="checklist">
+            <li><span class="check info"><i data-lucide="dot"></i></span><span>\(\omega\) and \(\tilde{\omega}\) per axis</span></li>
+            <li><span class="check info"><i data-lucide="dot"></i></span><span>Wheel torque saturation flags</span></li>
+            <li><span class="check info"><i data-lucide="dot"></i></span><span>Wheel speed and speed-limit flags</span></li>
+            <li><span class="check info"><i data-lucide="dot"></i></span><span>MEKF innovations on star tracker updates</span></li>
+            <li><span class="check info"><i data-lucide="dot"></i></span><span>Bias estimate vs injected bias drift</span></li>
+            <li><span class="check info"><i data-lucide="dot"></i></span><span>Truth and estimate of attitude and angular velocity</span></li>
+            <li><span class="check info"><i data-lucide="dot"></i></span><span>Commanded position and angular velocity</span></li>
+          </ul>
+        </div>
+
+        <div class="val-card">
+          <div class="val-head">
+            <i data-lucide="badge-check"></i>
+            <h3>Pass and fail checks</h3>
+          </div>
+          <p>
+            These checks support fast iteration and ensure that initial variables and responses stay within expected bounds.
+          </p>
+          <ul class="checklist">
+            <li><span class="check warn"><i data-lucide="alert-triangle"></i></span><span>Quaternion norm stays near 1</span></li>
+            <li><span class="check warn"><i data-lucide="alert-triangle"></i></span><span>Control torque respects \(\tau_{\max}\)</span></li>
+            <li><span class="check warn"><i data-lucide="alert-triangle"></i></span><span>Wheel speeds stay below \(\Omega_{\max}\)</span></li>
+            <li><span class="check warn"><i data-lucide="alert-triangle"></i></span><span>MEKF covariance stays positive definite</span></li>
+            <li><span class="check warn"><i data-lucide="alert-triangle"></i></span><span>Innovation magnitude stays bounded after each update</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="val-note">
+        <i data-lucide="info"></i>
+        <p>
+          A full Monte Carlo validation suite is in progress. The next section outlines the plan and the exact metrics it will report.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="next" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="map" class="icon-title"></i>
+        Roadmap and Next Steps
+      </h2>
+
+      <div class="roadmap">
+        <div class="road-card">
+          <div class="road-head">
+            <i data-lucide="cpu"></i>
+            <h3>Estimator hardening</h3>
+          </div>
+          <ul class="road-list">
+            <li>Lock down quaternion sign conventions across plant, sensors, and MEKF.</li>
+            <li>Add explicit frame annotations at every interface.</li>
+            <li>Track estimator covariance and ensure convergence.</li>
+            <li>NEES/NIS consistency statistics.</li>
+          </ul>
+        </div>
+
+        <div class="road-card">
+          <div class="road-head">
+            <i data-lucide="shuffle"></i>
+            <h3>Monte Carlo and consistency</h3>
+          </div>
+          <ul class="road-list">
+            <li>Batch runs across initial rates, bias draws, and star tracker dropout patterns.</li>
+            <li>Add NEES and NIS checks with chi-square bounds.</li>
+            <li>Report pass rates with seeded reproducibility.</li>
+          </ul>
+        </div>
+
+        <div class="road-card">
+          <div class="road-head">
+            <i data-lucide="wind"></i>
+            <h3>Disturbances and environment</h3>
+          </div>
+          <ul class="road-list">
+            <li>Add gravity-gradient torque and a simple aerodynamic torque model.</li>
+            <li>Extend wheel friction and motor dynamics.</li>
+            <li>Add sensor misalignment and scale factor errors.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <div class="contact-glow"></div>
+    <div class="container contact-container">
+      <h2 class="section-title contact-title">Let’s Connect</h2>
+      <p class="contact-subtitle">
+        If you are hiring for GN&amp;C, autonomy, or modeling and simulation in Seattle, I would like to talk.
+      </p>
+      <div class="contact-links">
+        <a href="../../#projects" class="btn-cta-secondary">
+          <i data-lucide="arrow-left"></i>
+          <span>View Other Projects</span>
+        </a>
+
+        <a
+          id="emailLink"
+          class="contact-card"
+          href="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&amp;body=Hi%20Jack,%0D%0A%0D%0A"
+          data-email="jackthuston1@gmail.com"
+          data-mailto="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&amp;body=Hi%20Jack,%0D%0A%0D%0A"
+        >
+          <i data-lucide="mail" class="icon-contact"></i>
+          <span>Email Me</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/jack-huston/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <i data-lucide="linkedin" class="icon-contact"></i>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2026 Jack Huston.</span>
+      <i data-lucide="satellite" class="icon-footer"></i>
+      <span>Estimation and control for flight systems.</span>
+    </div>
+  </footer>
+
+  <div id="clipboardToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+    Copied to Clipboard
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      const open = mobileMenu.classList.contains('active');
+      mobileMenuBtn.setAttribute('aria-expanded', String(open));
+      menuIcon.style.display = open ? 'none' : 'block';
+      closeIcon.style.display = open ? 'block' : 'none';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      });
+    });
+
+    const emailLink = document.getElementById('emailLink');
+    const toast = document.getElementById('clipboardToast');
+
+    function showToast() {
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    async function copyText(text) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      } catch {
+        return false;
+      }
+    }
+
+    if (emailLink) {
+      emailLink.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = emailLink.dataset.email;
+        const mailto = emailLink.dataset.mailto;
+
+        const copied = await copyText(email);
+        if (copied) showToast();
+
+        setTimeout(() => { window.location.href = mailto; }, 60);
+      });
+    }
+
+    setTimeout(() => lucide.createIcons(), 100);
+  </script>
+</body>
+</html>

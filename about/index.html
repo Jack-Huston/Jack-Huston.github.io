@@ -1,0 +1,758 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Jack Huston</title>
+    <meta name="description" content="About Jack Huston, a propulsion and guidance, navigation, and control engineer working on autonomous aerospace systems." />
+    <link rel="canonical" href="https://www.jack-huston.com/about/" />
+    <meta property="og:title" content="index | Jack Huston" />
+    <meta property="og:description" content="About Jack Huston, a propulsion and guidance, navigation, and control engineer working on autonomous aerospace systems." />
+    <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
+  <style>html{scroll-behavior:smooth}</style>
+    <link rel=""stylesheet"" href=""../assets/site.css"" />
+    <script src=""../assets/site.js"" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../#about" class="nav-back-btn" aria-label="Back to Portfolio">
+        <i data-lucide="arrow-left"></i>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <div class="nav-brand">
+        <i data-lucide="satellite" class="icon-nav"></i>
+        <span class="brand-name">Jack Huston</span>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-controls="mobileMenu" aria-expanded="false">
+        <i data-lucide="menu" id="menuIcon"></i>
+        <i data-lucide="x" id="closeIcon" style="display:none;"></i>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#summary" class="nav-link">Summary</a>
+        <a href="#coursework" class="nav-link">Coursework</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#leadership" class="nav-link">Leadership</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#summary" class="mobile-link">Summary</a>
+    <a href="#coursework" class="mobile-link">Coursework</a>
+    <a href="#experience" class="mobile-link">Experience</a>
+    <a href="#education" class="mobile-link">Education</a>
+    <a href="#leadership" class="mobile-link">Leadership</a>
+    <a href="#skills" class="mobile-link">Skills</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- Hero -->
+  <section id="main-content" class="hero hero--compact">
+    <div id="main-content" class="hero-content">
+      <h1 class="hero-title">GN&amp;C / Autonomy Engineer</h1>
+      <p class="hero-subtitle">
+        Flight software and simulation should be reliable. I aim to build models, estimation systems, and simulation-backed verification evidence.
+      </p>
+
+      <p class="hero-text">
+        <strong class="text-primary">Propulsion Engineer II</strong> at <strong class="text-accent">Lockheed Martin Space</strong>.<br>
+        M.S. student at the University of Colorado, Boulder, focused on <strong class="text-accent">estimation, tracking, and decision making under uncertainty</strong>.<br>
+        Targeting GN&amp;C and autonomy roles in <strong class="text-primary">Seattle, WA</strong>.
+      </p>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <i data-lucide="mail"></i>
+          <a class="meta-link" href="mailto:jackthuston1@gmail.com">jackthuston1@gmail.com</a>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="phone"></i>
+          <span><strong>(303) 817-5144</strong></span>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="linkedin"></i>
+          <a class="meta-link" href="https://www.linkedin.com/in/jack-huston/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jack-huston</a>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="map-pin-check-inside"></i>
+          <span><strong>United States Citizen</strong></span>
+        </div>
+      </div>
+
+      <div id="main-content" class="hero-buttons hero-buttons--tight">
+        <a href="../projects/orbit-determination/" class="btn-primary">
+          <i data-lucide="zap"></i>
+          <span>Orbit EKF + LQR Demo</span>
+        </a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Summary -->
+  <section id="summary" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="navigation" class="icon-title"></i>
+        Summary
+      </h2>
+
+      <div class="about-card">
+        <div class="about-content-wrapper">
+          <div class="about-profile-image">
+            <img loading="lazy" src="profile-image.jpg" alt="Jack Huston">
+          </div>
+
+          <div class="about-text-content">
+            <p class="about-text">
+              I work on flight hardware programs where requirements, test evidence, and risk reduction matter.
+              At Lockheed Martin Space, I support deep-space propulsion systems through verification work, anomaly investigations,
+              and data-driven performance assessments.
+            </p>
+
+            <ul class="bullet-list">
+              <li>Review thruster qualification and acceptance test data, then turn results into clear requirement closure and risk calls.</li>
+              <li>Build and maintain MATLAB tools that standardize test data processing, keep runs traceable, and cut review turnaround time.</li>
+              <li>Support propulsion component selection and verification for deep-space missions, working across test, systems, and design teams.</li>
+            </ul>
+
+            <p class="about-text">
+               My graduate school focus is GN&C and autonomy. My coursework builds estimation and decision-making methods that stay reliable 
+               in uncertain conditions when sensors are noisy, detections are imperfect, and the environment is only partially observed.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-buttons-container">
+          <a href="../Jack%20Huston%20Resume.pdf" download class="btn-cv">
+            <i data-lucide="download"></i><span>Download Resume</span>
+          </a>
+
+          <a
+            id="aboutEmailBtn"
+            href="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&amp;body=Hi%20Jack,%0D%0A%0D%0A"
+            data-email="jackthuston1@gmail.com"
+            data-mailto="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&amp;body=Hi%20Jack,%0D%0A%0D%0A"
+            class="btn-learn-more"
+          >
+            <i data-lucide="mail"></i><span>Contact Me</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coursework -->
+  <section id="coursework" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="graduation-cap" class="icon-title"></i>
+        Current Graduate Coursework (Spring 2026)
+      </h2>
+
+      <div class="course-grid">
+        <article class="course-card">
+          <div class="course-header">
+            <div class="course-icon">
+              <i data-lucide="camera"></i>
+            </div>
+            <div>
+              <h3 class="course-title">ASEN 6084, Optical Detection + Tracking</h3>
+              <div class="course-sub">Camera and sensor data to reliable object tracks</div>
+            </div>
+          </div>
+
+          <ul class="detail-list">
+            <li>Detect faint targets in noisy imagery, quantify measurement uncertainty.</li>
+            <li>Track targets with missed detections, false alarms, and multiple objects.</li>
+            <li>Implement Kalman filtering and data association for practical tracking.</li>
+            <li>Study multi-target tracking methods, including multi-hypothesis tracking and set-based RFS approaches.</li>
+          </ul>
+
+          <div class="mini-tags">
+            <span class="tag">Kalman Filtering</span>
+            <span class="tag">Data Association</span>
+            <span class="tag">Multi-Target Tracking</span>
+            <span class="tag">Sensor Models</span>
+          </div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-header">
+            <div class="course-icon">
+              <i data-lucide="route"></i>
+            </div>
+            <div>
+              <h3 class="course-title">ASEN/CSCI 5264, Decision Making under Uncertainty</h3>
+              <div class="course-sub">Planning and control with hidden state and partial observability</div>
+            </div>
+          </div>
+
+          <ul class="detail-list">
+            <li>Model decisions under uncertainty using probabilistic state and observation models.</li>
+            <li>Plan with MDPs using value iteration and policy iteration.</li>
+            <li>Apply reinforcement learning methods to learn policies from experience.</li>
+            <li>Plan with POMDPs using belief updates, including Bayesian and particle filtering concepts.</li>
+            <li>Cover multi-agent decision making through game theory and Markov games.</li>
+          </ul>
+
+          <div class="mini-tags">
+            <span class="tag">MDPs</span>
+            <span class="tag">POMDPs</span>
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">Belief State</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="course-note">
+        <div class="note-icon"><i data-lucide="check-circle-2"></i></div>
+        <div class="note-text">
+          <div class="note-title">What you get from this:</div>
+          <div class="note-body">
+            I complete and self-fund my graduate coursework asynchronously while working full-time. I choose classes that map to real GN&amp;C work.
+            I bring recent methods from school into my day-to-day work, while staying focused on the team's priorities during the workday.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="briefcase" class="icon-title"></i>
+        Professional Experience
+      </h2>
+
+      <div class="timeline">
+        <!-- Lockheed Martin -->
+        <article class="timeline-item">
+          <header class="timeline-header">
+            <div class="role-org">
+              <h3 class="role">Lockheed Martin Space</h3>
+              <div class="org">Propulsion engineering, verification, test data analysis</div>
+            </div>
+            <div class="when-where">
+              <div class="where"><i data-lucide="map-pin"></i><span>Littleton, CO</span></div>
+              <div class="when"><i data-lucide="calendar"></i><span>May 2022 to Present</span></div>
+            </div>
+          </header>
+
+          <div class="role-split">
+            <div class="role-block">
+              <div class="role-line">
+                <span class="role-title">Propulsion Engineer II</span>
+                <span class="role-date">Feb 2025 to Present</span>
+              </div>
+              <ul class="detail-list">
+                <li>Own analysis and verification workstreams for deep-space systems, focused on requirement closure and risk reduction.</li>
+                <li>Build and maintain MATLAB tooling to improve repeatability, traceability, and turnaround time for qualification and acceptance reviews.</li>
+              </ul>
+            </div>
+
+            <div class="role-block">
+              <div class="role-line">
+                <span class="role-title">Propulsion Engineer I</span>
+                <span class="role-date">Jul 2023 to Feb 2025</span>
+              </div>
+              <ul class="detail-list">
+                <li>Supported component selection and verification, ensured hardware met mission requirements and integrated cleanly with the vehicle.</li>
+                <li>Contributed to a lunar lander transportation program supporting Blue Origin HLS through the CIS Lunar Transporter vehicle team.</li>
+                <li>Built MATLAB tools to automate thruster test data review for qualification and acceptance campaigns, improved consistency and reduced manual processing.</li>
+                <li>Built fast what-if vehicle models to answer design questions under rapid iteration, then translated outputs into clear verification evidence.</li>
+              </ul>
+            </div>
+
+            <div class="role-block">
+              <div class="role-line">
+                <span class="role-title">Propulsion Engineer Intern</span>
+                <span class="role-date">May 2022 to Jul 2023</span>
+              </div>
+              <ul class="detail-list">
+                <li>Developed test procedures and executed performance assessments for additively manufactured filters on deep-space monopropellant applications.</li>
+                <li>Summarized results into engineering recommendations to guide manufacturing and design decisions.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Teaching Fellow -->
+        <article class="timeline-item">
+          <header class="timeline-header">
+            <div class="role-org">
+              <h3 class="role">Teaching Fellow</h3>
+              <div class="org">University of Colorado Boulder</div>
+            </div>
+            <div class="when-where">
+              <div class="where"><i data-lucide="map-pin"></i><span>Boulder, CO</span></div>
+              <div class="when"><i data-lucide="calendar"></i><span>Aug 2021 to May 2023</span></div>
+            </div>
+          </header>
+          <p class="detail-text">
+            Led labs and office hours for Thermodynamics, Aerodynamics, Dynamics, and Electronics. Supported 100+ students per semester with hands-on demos and data-first problem solving.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="school" class="icon-title"></i>
+        Education
+      </h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-header">
+            <i data-lucide="graduation-cap"></i>
+            <div>
+              <div class="edu-title">M.S., Aerospace Engineering Sciences, Autonomous Systems</div>
+              <div class="edu-sub">University of Colorado Boulder, Professional M.S.<br>(Remote/Asynchronous), GPA 4.00</div>
+              <div class="edu-sub edu-sub--tight">Focus: Estimation, tracking, autonomy, and control software.</div>
+              <div class="edu-when">Aug 2025 to Dec 2027 (Expected)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-header">
+            <i data-lucide="graduation-cap"></i>
+            <div>
+              <div class="edu-title">B.S., Aerospace Engineering Sciences, minor in Computer Science</div>
+              <div class="edu-sub">University of Colorado Boulder<br><em>Summa Cum Laude</em>, GPA 3.97</div>
+              <div class="edu-when">Aug 2019 to May 2023</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="users" class="icon-title"></i>
+        Leadership and Service
+      </h2>
+
+      <div class="detail-card">
+        <div class="detail-icon-container">
+          <i data-lucide="mountain" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">Board of Directors, Arapahoe Rescue Patrol</h3>
+          <p class="detail-text">
+            Director of Technology for a youth-run, all-volunteer search and rescue team. The board oversees governance, readiness, fundraising, and operational policy.
+            I support technology rollouts and field readiness, and deploy as needed.
+          </p>
+          <ul class="detail-list">
+            <li>Roll out tools and processes that improve readiness and communication.</li>
+            <li>Set training and equipment priorities tied to safety and mission success.</li>
+            <li>Support after-action reviews, drive changes based on what the data shows.</li>
+          </ul>
+
+          <div class="photo-row">
+            <div class="photo-item">
+              <img loading="lazy" src="technical-rescue-training.jpg" alt="Technical rescue training">
+              <div class="image-caption">Technical rescue training.</div>
+            </div>
+            <div class="photo-item">
+              <img loading="lazy" src="team-photo.jpg" alt="Arapahoe Rescue Patrol team photo">
+              <div class="image-caption">Team photo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i data-lucide="layers" class="icon-title"></i>
+        Skills and Tools
+      </h2>
+
+      <div class="skills-grid">
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="crosshair"></i><h3>Estimation and Tracking</h3>
+          </div>
+          <div class="spec-content">
+            <p>Kalman filtering, measurement modeling, track management, data association, and multi-target tracking concepts from ASEN 6084.</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="compass"></i><h3>Control and Simulation</h3>
+          </div>
+          <div class="spec-content">
+            <p>Linear control foundations, modeling and simulation, and a test-backed validation mindset. Build tools to explore what-if cases and support design decisions.</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="route"></i><h3>Autonomy and Decision Making</h3>
+          </div>
+          <div class="spec-content">
+            <p>MDPs, POMDPs, belief state updates, reinforcement learning concepts, and multi-agent decision making concepts from ASEN/CSCI 5264.</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="code"></i><h3>Software and Data</h3>
+          </div>
+          <div class="spec-content">
+            <p>MATLAB for high-volume data review and automation. C and C++ for embedded projects. LabVIEW for test integration. Python basics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section section-white">
+    <div class="container-wide">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Estimation, control, sensors, and embedded systems work you can scan fast</p>
+
+      <div class="projects-grid">
+        <!-- Project 0 -->
+        <a href="../projects/orbit-determination/" class="project-card">
+          <div class="project-image-container">
+            <img loading="lazy" src="project0-placeholder.jpg" alt="Orbit determination and LQR control demo" class="project-image">
+          </div>
+          <div class="project-badge-header">
+            <i data-lucide="crosshair"></i>
+            <span>Estimation + Control Testing</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">EKF Orbit Determination + LQR Orbit Control</h3>
+            <p class="project-description">
+              EKF orbit determination with noisy range, range-rate, and angle measurements. LQR control uses the EKF estimate with saturation. Monte Carlo runs check NEES and NIS against chi-square bounds.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Kalman Filtering</span>
+              <span class="tag">LQR</span>
+              <span class="tag">Orbital Dynamics</span>
+              <span class="tag">Monte Carlo</span>
+              <span class="tag">NEES/NIS</span>
+            </div>
+            <div class="project-links-simple">
+              <span class="link-details">
+                <span>View Details</span>
+                <i data-lucide="arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 1 -->
+        <a href="../projects/ice-plume-detector/" class="project-card">
+          <div class="project-image-container">
+            <img loading="lazy" src="project1-placeholder.jpg" alt="Ice Plume Particle Detector" class="project-image">
+          </div>
+          <div class="project-badge-header">
+            <i data-lucide="atom"></i>
+            <span>Sensor and System Prototyping</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Ice Plume Particle Detector</h3>
+            <p class="project-description">
+              Prototype instrument concept for detecting charged ice grains in a plume fly-through. Work covered hardware, signal paths, and test setup.
+            </p>
+            <div class="project-tags">
+              <span class="tag">MATLAB</span>
+              <span class="tag">SolidWorks</span>
+              <span class="tag">C++</span>
+              <span class="tag">PCB Design</span>
+              <span class="tag">Lab Testing</span>
+              <span class="tag">LabVIEW</span>
+            </div>
+            <div class="project-links-simple">
+              <span class="link-details">
+                <span>View Details</span>
+                <i data-lucide="arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 2 -->
+        <a href="../projects/propellant-level-sensor/" class="project-card">
+          <div class="project-image-container">
+            <img loading="lazy" src="project2-placeholder.jpg" alt="Propellant level sensor" class="project-image">
+          </div>
+          <div class="project-badge-header">
+            <i data-lucide="activity"></i>
+            <span>Measurement + Calibration</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Capacitance Propellant Level Sensor</h3>
+            <p class="project-description">
+              Capacitance sensor for RP-1 and cryogenic LOX tanks. Calibration and integration work supported repeatable test data collection.
+            </p>
+            <div class="project-tags">
+              <span class="tag">C++</span>
+              <span class="tag">SolidWorks</span>
+              <span class="tag">Manufacturing</span>
+              <span class="tag">PCB Design</span>
+              <span class="tag">Integration and Test</span>
+            </div>
+            <div class="project-links-simple">
+              <span class="link-details">
+                <span>View Details</span>
+                <i data-lucide="arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 3 -->
+        <a href="../projects/smart-home-lamp/" class="project-card">
+          <div class="project-image-container">
+            <img loading="lazy" src="project3-placeholder.jpg" alt="IoT smart lamp controllers" class="project-image">
+          </div>
+          <div class="project-badge-header">
+            <i data-lucide="wifi"></i>
+            <span>Embedded Systems</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">IoT Smart Home Control Lamps</h3>
+            <p class="project-description">
+              Paired desk lamps that act as tactile IoT controllers. Work covered sensing, state handling, and device-to-service messaging.
+            </p>
+            <div class="project-tags">
+              <span class="tag">C++</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Electronics</span>
+              <span class="tag">IoT</span>
+              <span class="tag">Integration</span>
+            </div>
+            <div class="project-links-simple">
+              <span class="link-details">
+                <span>View Details</span>
+                <i data-lucide="arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 4 -->
+        <a href="../projects/undergraduate-rocketry/" class="project-card">
+          <div class="project-image-container">
+            <img loading="lazy" src="project4-placeholder.jpg" alt="Rocket integration and test" class="project-image">
+          </div>
+          <div class="project-badge-header">
+            <i data-lucide="wrench"></i>
+            <span>Systems Integration and Test</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Rocket Integration and Test</h3>
+            <p class="project-description">
+              Sounding rocket lab work across integration, test prep, data collection, and post-test review.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Integration and Test</span>
+              <span class="tag">LabVIEW</span>
+              <span class="tag">Electronics</span>
+              <span class="tag">Control Logic</span>
+              <span class="tag">Manufacturing</span>
+            </div>
+            <div class="project-links-simple">
+              <span class="link-details">
+                <span>View Details</span>
+                <i data-lucide="arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 5 -->
+        <a href="../projects/time-writing-robot/" class="project-card">
+          <div class="project-image-container">
+            <img loading="lazy" src="project5-placeholder.jpg" alt="SCARA robot writing clock" class="project-image">
+          </div>
+          <div class="project-badge-header">
+            <i data-lucide="cpu"></i>
+            <span>Control + Mechatronics</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">SCARA Robot Writing Clock</h3>
+            <p class="project-description">
+              SCARA robot that writes and erases the current time. Work covered kinematics, control logic, and reliable command handling.
+            </p>
+            <div class="project-tags">
+              <span class="tag">C++</span>
+              <span class="tag">Electronics</span>
+              <span class="tag">Kinematics</span>
+              <span class="tag">Control Systems</span>
+              <span class="tag">Manufacturing</span>
+            </div>
+            <div class="project-links-simple">
+              <span class="link-details">
+                <span>View Details</span>
+                <i data-lucide="arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact-section">
+    <div class="contact-glow"></div>
+    <div class="container contact-container">
+      <h2 class="section-title contact-title">Let’s Connect</h2>
+      <p class="contact-subtitle">
+        If you are hiring for GN&amp;C, autonomy, or modeling and simulation in Seattle, let's chat! Reach out by email or LinkedIn below.
+      </p>
+      <div class="contact-links">
+        <a
+          id="ctaEmailBtn"
+          class="contact-card"
+          href="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&amp;body=Hi%20Jack,%0D%0A%0D%0A"
+          data-email="jackthuston1@gmail.com"
+          data-mailto="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&amp;body=Hi%20Jack,%0D%0A%0D%0A"
+        >
+          <i data-lucide="mail" class="icon-contact"></i>
+          <span>Email Me</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/jack-huston/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <i data-lucide="linkedin" class="icon-contact"></i>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Small toast -->
+  <div id="clipboardToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+    Copied to Clipboard
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2026 Jack Huston.</span>
+      <i data-lucide="satellite" class="icon-footer"></i>
+      <span>Estimation and control for real vehicles.</span>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      const open = mobileMenu.classList.contains('active');
+      mobileMenuBtn.setAttribute('aria-expanded', String(open));
+      menuIcon.style.display = open ? 'none' : 'block';
+      closeIcon.style.display = open ? 'block' : 'none';
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      });
+    });
+
+    // Subtle navbar background shift on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (!navbar) return;
+      navbar.style.backgroundColor = window.scrollY > 50
+        ? 'rgba(255, 255, 255, 0.96)'
+        : 'rgba(255, 255, 255, 0.92)';
+    });
+
+    // Copy email + toast, then open mail client
+    const toast = document.getElementById('clipboardToast');
+
+    function showToast() {
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    async function copyText(text) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      } catch {
+        return false;
+      }
+    }
+
+    function enhanceEmailLink(anchorId) {
+      const el = document.getElementById(anchorId);
+      if (!el) return;
+      el.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = el.dataset.email;
+        const mailto = el.dataset.mailto || el.href;
+        const copied = await copyText(email);
+        if (copied) showToast();
+        setTimeout(() => { window.location.href = mailto; }, 60);
+      });
+    }
+
+    enhanceEmailLink('aboutEmailBtn');
+    enhanceEmailLink('ctaEmailBtn');
+
+    setTimeout(() => lucide.createIcons(), 100);
+  </script>
+</body>
+</html>

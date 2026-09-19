@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IoT Interactive Button Lamp – Jack Huston</title>
+    <meta name="description" content="A connected desk lamp prototype combining mechanical design, embedded control, and voice interaction." />
+    <link rel="canonical" href="https://www.jack-huston.com/projects/smart-home-lamp/" />
+    <meta property="og:title" content="index | Jack Huston" />
+    <meta property="og:description" content="A connected desk lamp prototype combining mechanical design, embedded control, and voice interaction." />
+    <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
+  <style>html{scroll-behavior:smooth;}</style>
+    <link rel=""stylesheet"" href=""../../assets/site.css"" />
+    <script src=""../../assets/site.js"" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../#projects" class="nav-back-btn">
+        <i data-lucide="arrow-left"></i>
+        <span>Back to Portfolio</span>
+      </a>
+      <div class="nav-brand">
+        <i data-lucide="rocket" class="icon-nav"></i>
+        <span class="brand-name">Jack Huston</span> <!-- add class -->
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i data-lucide="menu" id="menuIcon"></i>
+        <i data-lucide="x" id="closeIcon" style="display:none;"></i>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#how" class="nav-link">How It Works</a>
+        <a href="#build" class="nav-link">Build Details</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#overview" class="mobile-link">Overview</a>
+    <a href="#how" class="mobile-link">How It Works</a>
+    <a href="#build" class="mobile-link">Build Details</a>
+    <a href="#gallery" class="mobile-link">Gallery</a>
+  </div>
+
+  <!-- Hero -->
+  <section id="main-content" class="project-hero">
+    <div id="main-content" class="project-hero-content">
+      <div class="project-badge">
+        <i data-lucide="wifi"></i>
+        <span>Embedded Systems & IoT</span>
+      </div>
+      <h1 class="project-hero-title">IoT Interactive Button Lamp</h1>
+      <p class="project-hero-subtitle">
+        A hobby project to construct a pair of internet-connected lamps with a magnet-ring rotary interface and capacitive touch control—designed, engineered, and programmed end-to-end.
+      </p>
+      <div class="project-meta">
+        <div class="meta-item">
+          <i data-lucide="user"></i><span>Solo Build</span>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="wrench"></i><span>Hobby Project</span>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="cable"></i><span>USB-C Powered</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section id="overview" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Project Overview</h2>
+
+      <div class="overview-grid">
+        <div class="overview-image-container">
+          <!-- Updated exterior render -->
+          <img src="full-body-render.jpg" alt="Exterior render of the interactive button lamp with a copper touch pad" class="overview-image" loading="lazy"/>
+          <div class="image-caption">Minimal exterior: copper capacitive touch pad centered on the rotation axis</div>
+
+          <!-- Autoplay looping demo video with poster -->
+          <video controls preload="none" class="overview-image" playsinline muted loop poster="usage-demo-cover.jpg" style="margin-top:1rem; border-radius:1rem;">
+            <source src="usage-demo.mp4" type="video/mp4"/>
+            <div class="image-caption">Demonstration of rotational and touch input functionality</div>
+          </video>
+        </div>
+
+        <div class="overview-content">
+          <div>
+            <h3 class="overview-heading">Idea</h3>
+            <p class="overview-text">
+              Build two identical desk lamps that double as tactile Internet of Things (IoT) controllers. A rotating outer shell with a hidden magnet ring drives input; a capacitive copper pad provides click/hold gestures. RGB LEDs under a translucent PLA body glow through the surface for feedback and illumination.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="overview-heading">What They Can Do</h3>
+            <p class="overview-text">
+              Because they’re networked, the lamps can control brightness and color, set kitchen timers, or even send color “messages” between devices anywhere in the world. As they are connected to the Arduino Cloud, they can be integrated into all Amazon, Alexa, or Google Home systems. The design avoids a traditional rotary encoder (which would be blocked by the axial touch pad) by sensing magnetic field rotation instead.
+            </p>
+          </div>
+
+          <div class="tech-stack">
+            <h3 class="tech-stack-title">Technologies & Tools</h3>
+            <div class="tech-tags">
+              <span class="tech-tag">C++ (Arduino)</span>
+              <span class="tech-tag">IoT (Wi-Fi)</span>
+              <span class="tech-tag">Hall-Effect Sensing</span>
+              <span class="tech-tag">Capacitive Touch</span>
+              <span class="tech-tag">LED Control</span>
+              <span class="tech-tag">3D Printing (PLA)</span>
+              <span class="tech-tag">CAD &amp; Mechanisms</span>
+              <span class="tech-tag">Electronics</span>
+              <span class="tech-tag">Manufacturing &amp; Test</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary visual: internals -->
+      <div class="overview-image-container" style="margin-top:1.5rem;">
+        <img src="internal-model.jpg" alt="Internal render showing outer/inner housings, magnet ring, LED ring, bearings, and PCB (hall sensors not shown)" class="overview-image" loading="lazy"/>
+        <div class="image-caption">Inside the lamp: outer &amp; inner housings, 48-magnet ring, LED ring, bearings, and control PCB (hall sensors not shown)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="section">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+
+      <div class="detail-card">
+        <div class="detail-icon-container">
+          <i data-lucide="rotate-ccw" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">Magnet-Ring Rotation Sensing</h3>
+          <p class="detail-text">
+            A rotating outer housing carries a ring of <strong>48 permanent magnets</strong>. Two hall-effect sensors are mounted 41.25° apart, producing out-of-phase magnetic signals. The microcontroller compares the phase relationship to determine <em>direction</em> and counts zero-crossings for <em>steps</em>, emulating an encoder without one. Because of the axial button and housing axis, traditional rotation sensing methods could not be used.
+          </p>
+          <ul class="detail-list">
+            <li>Quadrature-style decoding from dual hall sensors</li>
+            <li>Debounce and hysteresis to reject micro-jitter</li>
+            <li>Adaptive step size for slow/fast user rotation</li>
+          </ul>
+
+          <!-- New magnet ring movement video -->
+          <div class="centered-media">
+            <video controls preload="none" class="overview-image" playsinline muted loop poster="magnet-ring-movement-cover.jpg">
+              <source src="magnet-ring-movement.mp4" type="video/mp4"/>
+            </video>
+            <div class="image-caption">Magnet ring movement relative to the sensors (demonstration)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-card detail-card-reverse">
+        <div class="detail-icon-container">
+          <i data-lucide="fingerprint" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">Capacitive Touch &amp; Gestures</h3>
+          <p class="detail-text">
+            The top copper pad senses touch/hold/double-tap. Placing the pad on the rotation axis preserves symmetry and eliminates wiring through a spinning joint which would have required an expensive slip-ring. Gestures control modes (e.g., hold to pair, tap to confirm/send command) while rotation adjusts the selected parameters.
+          </p>
+          <ul class="detail-list">
+            <li>Touch filtering with moving average + threshold tracking</li>
+            <li>Tap/hold/double-tap gesture state machine</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <div class="detail-icon-container">
+          <i data-lucide="wifi" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">IoT Control &amp; Use Cases</h3>
+          <p class="detail-text">
+            An IoT-enabled Arduino (ESP-class) publishes events and subscribes to commands. The pair can mirror each other’s color, act as remote dimmer knobs, or push values to home-automation systems. A single USB-C power port makes them desk-friendly.
+          </p>
+          <ul class="detail-list">
+            <li>Bi-directional lamp-to-lamp color sync</li>
+            <li>Timer &amp; countdown indication via animations</li>
+            <li>Home-automation hooks for lighting scenes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Build details -->
+  <section id="build" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Build Details</h2>
+
+      <div class="specs-grid">
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="ruler"></i><h3>Mechanical</h3>
+          </div>
+          <div class="spec-content">
+            <p><strong>Body:</strong> 3D-printed PLA Diffuser (translucent top section)</p>
+            <p><strong>Mechanism:</strong> Rotating outer shell with embedded magnets</p>
+            <p><strong>Touch Pad:</strong> Copper disc centered on axis</p>
+            <p><strong>Rotation:</strong> Aligned on axis with 3x bearings (Also for added weight)</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="cpu"></i><h3>Electronics</h3>
+          </div>
+          <div class="spec-content">
+            <p><strong>Microcontroller:</strong> IoT-enabled Arduino (NANO 33 IoT) (ESP-class)</p>
+            <p><strong>Sensing:</strong> Dual hall sensors (quadrature), capacitive touch IC</p>
+            <p><strong>Lighting:</strong> Addressable LED ring under diffuser</p>
+            <p><strong>Power:</strong> Built in USB-C power plug</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="code"></i><h3>Firmware</h3>
+          </div>
+          <div class="spec-content">
+            <p><strong>Language:</strong> C++</p>
+            <p><strong>Features:</strong> Gesture finite-state machine, rotation decoding, Wi-Fi sync</p>
+            <p><strong>Updates:</strong> Configurable modes &amp; animations</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="plug-zap"></i><h3>Power &amp; I/O</h3>
+          </div>
+          <div class="spec-content">
+            <p><strong>Power:</strong> USB-C 5&nbsp;V</p>
+            <p><strong>Control:</strong> Local gestures + network commands</p>
+            <p><strong>Mount:</strong> Desk-friendly footprint</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="overview-image-container">
+        <!-- Internal assembly photo of main components -->
+        <img src="main-components-image.jpeg" alt="Main components of the lamp assembled on a desk" class="overview-image" loading="lazy"/>
+        <div class="image-caption">Internal assembly: main components laid out and assembled on the bench</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <div class="container-wide">
+      <h2 class="section-title">Project Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="full-body-render.jpg" alt="Full body render of the lamp" loading="lazy">
+          <div class="gallery-caption">Full body render</div>
+        </div>
+        <div class="gallery-item">
+          <img src="lit-without-top-image.jpeg" alt="Lamp lit with the top removed" loading="lazy">
+          <div class="gallery-caption">Fully lit without diffuser body</div>
+        </div>
+        <div class="gallery-item">
+          <img src="main-components-image.jpeg" alt="Main components assembled on desk" loading="lazy">
+          <div class="gallery-caption">Bench assembly</div>
+        </div>
+        <div class="gallery-item">
+          <img src="full-lit-image.jpeg" alt="Lamp fully lit through the translucent top" loading="lazy">
+          <div class="gallery-caption">Fully lit through diffuser</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA (standardized) -->
+  <section id="contact" class="section contact-section">
+    <div class="contact-glow"></div>
+    <div class="container contact-container">
+      <h2 class="section-title contact-title">Let's Connect</h2>
+      <p class="contact-subtitle">
+        I'd be happy to discuss my experience in more detail or explore potential career opportunities.
+      </p>
+      <div class="contact-links">
+        <!-- Button 1: View Other Projects -->
+        <a href="../../#projects" class="btn-cta-secondary">
+          <i data-lucide="arrow-left"></i>
+          <span>View Other Projects</span>
+        </a>
+
+        <!-- Button 2: Email Me (copy, toast, then open mail client) -->
+        <a
+          class="contact-card cta-email-link"
+          href="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&body=Hi%20Jack,%0D%0A%0D%0A"
+          data-email="jackthuston1@gmail.com"
+          data-mailto="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&body=Hi%20Jack,%0D%0A%0D%0A"
+        >
+          <i data-lucide="mail" class="icon-contact"></i>
+          <span>Email Me</span>
+        </a>
+
+        <!-- Button 3: LinkedIn -->
+        <a href="https://www.linkedin.com/in/jack-huston/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <i data-lucide="linkedin" class="icon-contact"></i>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2025 Jack Huston.</span>
+      <i data-lucide="rocket" class="icon-footer"></i>
+      <span>Propelling aerospace innovation, one engine at a time.</span>
+    </div>
+  </footer>
+
+  <!-- Copy toast -->
+  <div class="toast" id="copyToast" aria-live="polite">Copied to Clipboard</div>
+
+  <script>
+    // Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide && lucide.createIcons) {
+        lucide.createIcons();
+        setTimeout(() => lucide.createIcons(), 100);
+      }
+
+      // Mobile menu
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuIcon = document.getElementById('menuIcon');
+      const closeIcon = document.getElementById('closeIcon');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        const open = mobileMenu.classList.contains('active');
+        menuIcon.style.display = open ? 'none' : 'block';
+        closeIcon.style.display = open ? 'block' : 'none';
+      });
+
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          menuIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
+        });
+      });
+
+      // Navbar background on scroll
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        navbar.style.backgroundColor = window.scrollY > 50
+          ? 'rgba(255, 255, 255, 0.98)'
+          : 'rgba(255, 255, 255, 0.95)';
+      });
+
+      // --- Email CTA: copy email + toast + open mail client ---
+      const emailLinks = document.querySelectorAll('.cta-email-link');
+      const copyToast = document.getElementById('copyToast');
+
+      function showToast() {
+        if (!copyToast) return;
+        copyToast.classList.add('show');
+        setTimeout(() => copyToast.classList.remove('show'), 1800);
+      }
+
+      emailLinks.forEach(link => {
+        link.addEventListener('click', async (e) => {
+          e.preventDefault();
+          const email = link.dataset.email || 'jackthuston1@gmail.com';
+          const mailtoHref = link.dataset.mailto || link.getAttribute('href');
+
+          try {
+            if (navigator.clipboard) {
+              await navigator.clipboard.writeText(email);
+              showToast();
+            }
+          } catch (_) {
+            // Clipboard might be blocked; keep going
+          }
+
+          // Open the mail client
+          window.location.href = mailtoHref;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SCARA Robot Writing Clock – Jack Huston</title>
+    <meta name="description" content="A SCARA-style writing robot using inverse kinematics, servo control, and a compact mechanical design." />
+    <link rel="canonical" href="https://www.jack-huston.com/projects/time-writing-robot/" />
+    <meta property="og:title" content="index | Jack Huston" />
+    <meta property="og:description" content="A SCARA-style writing robot using inverse kinematics, servo control, and a compact mechanical design." />
+    <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
+  <style>html{scroll-behavior:smooth;}</style>
+    <link rel=""stylesheet"" href=""../../assets/site.css"" />
+    <script src=""../../assets/site.js"" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../#projects" class="nav-back-btn">
+        <i data-lucide="arrow-left"></i>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <div class="nav-brand">
+        <i data-lucide="rocket" class="icon-nav"></i>
+        <span class="brand-name">Jack Huston</span>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i data-lucide="menu" id="menuIcon"></i>
+        <i data-lucide="x" id="closeIcon" style="display:none;"></i>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#technical" class="nav-link">Technical</a>
+        <a href="#results" class="nav-link">Results</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#overview" class="mobile-link">Overview</a>
+    <a href="#technical" class="mobile-link">Technical</a>
+    <a href="#results" class="mobile-link">Results</a>
+  </div>
+
+  <!-- Hero -->
+  <section id="main-content" class="project-hero">
+    <div id="main-content" class="project-hero-content">
+      <div class="project-badge">
+        <i data-lucide="cpu"></i>
+        <span>Automation & Mechatronics</span>
+      </div>
+      <h1 class="project-hero-title">SCARA Robot Writing Clock</h1>
+      <p class="project-hero-subtitle">
+        A servo-driven SCARA-style robotic arm that wrote (and erased) the current time on a whiteboard once per minute. Intentionally overcomplicated, but it worked.
+      </p>
+      <div class="project-meta">
+        <div class="meta-item"><i data-lucide="calendar"></i><span>2019</span></div>
+        <div class="meta-item"><i data-lucide="map-pin"></i><span>CU Boulder • Dorm Build</span></div>
+        <div class="meta-item"><i data-lucide="user"></i><span>Freshman Class Project • Solo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section id="overview" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Project Overview</h2>
+
+      <div class="overview-grid">
+        <!-- Text Column -->
+        <div class="overview-content">
+          <div>
+            <h3 class="overview-heading">What I Built</h3>
+            <p class="overview-text">
+              A two-link SCARA-style robot made from whatever I could find: a scrap wood base,
+              tape, and aluminum bar stock pulled from the trash. A dry-erase marker sat in a simple plunger (pulled from a broken linear actuator and taped in place)
+              that could pick up the eraser, wipe the board clean, then write the next minute’s time.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="overview-heading">Why This Is Here</h3>
+            <p class="overview-text">
+              This is not a showcase of refined engineering, or what I am at all capable of doing now. This was long before I "learned to engineer", 3D model, or to actually design components. This is more of a testiment that some stubbornness and grit, and access to a lot of tape and scrap materials, can produce some cool results.
+            </p>
+          </div>
+
+          <div class="scrappy-callout">
+            <i data-lucide="hammer" aria-hidden="true"></i>
+            <p>
+              Built before I knew CAD or 3D printing. I’m not too ashamed of how it looks, <strong>it worked</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Videos Column (stacked vertically) -->
+        <div>
+          <div class="overview-image-container">
+            <video controls preload="none" class="overview-image" src="demonstration-video-1.MOV" muted loop playsinline preload="metadata">
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+            <div class="image-caption">Demonstration Video #1</div>
+          </div>
+
+          <div class="overview-image-container" style="margin-top:1rem;">
+            <video controls preload="none" class="overview-image" src="demonstration-video-2.MOV" muted loop playsinline preload="metadata">
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+            <div class="image-caption">Demonstration Video #2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-stack">
+        <h3 class="tech-stack-title">Technologies & Tools</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">C++ (Arduino)</span>
+          <span class="tech-tag">Inverse Kinematics</span>
+          <span class="tech-tag">Manufacturing</span>
+          <span class="tech-tag">Electronics</span>
+          <span class="tech-tag">Basic Control Systems</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical -->
+  <section id="technical" class="section">
+    <div class="container">
+      <h2 class="section-title">Technical Notes</h2>
+
+      <div class="detail-card">
+        <div class="detail-icon-container">
+          <i data-lucide="git-branch" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">Control & Kinematics</h3>
+          <p class="detail-text">
+            I implemented planar 2-link inverse kinematics for a SCARA layout to convert XY targets
+            into shoulder/elbow servo angles. A tiny parser accepted lines of my “G-code” (e.g., <code>GO TO COORDINATE X, Y</code>,
+            <code>PEN UP/DOWN</code>, <code>GO HOME</code>), interpolated segments, and scheduled servo motion.
+          </p>
+
+          <p class="detail-text">
+            I also built a quick inverse-kinematic test simulator to visualize reachability and check joint limits before running the servos.
+            It let me scrub through target points, confirm valid angle pairs, and avoid elbow configurations that would clip the board or bind the linkage.
+          </p>
+
+          <div class="centered-media">
+            <!-- Force eager load and ensure animation by resetting src on load via JS -->
+            <video controls preload="none"
+              id="ikVideo"
+              class="overview-image"
+              src="simulation-testing.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+
+            <div class="image-caption">Inverse-kinematic test simulator used to validate reachable poses and angle limits.</div>
+          </div>
+
+          <div class="centered-media">
+            <img src="scara-robot-coordinates.png" alt="Coordinates used for drawing each number" loading="lazy"/>
+            <div class="image-caption">Coordinate sets for each digit used by the custom command stream.</div>
+          </div>
+
+          <div class="centered-media">
+            <img src="scara-robot-coordinate-calculation.jpg" alt="Coordinate conversion method and notes" loading="lazy"/>
+            <div class="image-caption">Coordinate conversion method for mapping whiteboard positions to SCARA joint angles.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-card detail-card-reverse">
+        <div class="detail-icon-container">
+          <i data-lucide="cpu" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">Electronics</h3>
+          <p class="detail-text">
+            Standard hobby servos driven by an IoT connected Arduino. A basic driver board powered the servos; the marker plunger servo and two arm controls driven by the Arduino servo library. 
+          </p>
+          <div class="centered-media">
+            <img src="scara-circuit-schematic.png" alt="SCARA robot electrical schematic for servo control and Arduino wiring" loading="lazy"/>
+            <div class="image-caption">Electronics Schematic</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Results &amp; Lessons</h2>
+
+      <div class="results-content">
+        <h3 class="results-heading">What Worked</h3>
+        <p class="results-text">
+          It (mostly) reliably erased and rewrote the time every minute. The inverse kinematics were reasonably stable,
+          and the ad-hoc “G-code” made it easy to author digit strokes and erasing paths.
+        </p>
+
+        <h3 class="results-heading">What I’d Improve Now</h3>
+        <p class="results-text">
+          Where to begin... Real linkages, a proper end-effector, closed-loop feedback, and a sane mechanical/tolerance stackup. There is much that could be improved, but the basic demonstrated prototype is there.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA (shared) -->
+  <section id="contact" class="section contact-section">
+    <div class="contact-glow"></div>
+    <div class="container contact-container">
+      <h2 class="section-title contact-title">Let's Connect</h2>
+      <p class="contact-subtitle">
+        I'd be happy to discuss my experience in more detail or explore potential career opportunities.
+      </p>
+      <div class="contact-links">
+        <a href="../../#projects" class="btn-cta-secondary">
+          <i data-lucide="arrow-left"></i>
+          <span>View Other Projects</span>
+        </a>
+
+        <!-- Prefilled mailto; JS copies email & shows toast, then opens -->
+        <a
+          id="emailLink"
+          class="contact-card"
+          href="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&body=Hi%20Jack,%0D%0A%0D%0A"
+          data-email="jackthuston1@gmail.com"
+          data-mailto="mailto:jackthuston1@gmail.com?subject=Contact%20via%20Portfolio%20Website&body=Hi%20Jack,%0D%0A%0D%0A"
+        >
+          <i data-lucide="mail" class="icon-contact"></i>
+          <span>Email Me</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/jack-huston/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <i data-lucide="linkedin" class="icon-contact"></i>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2025 Jack Huston.</span>
+      <i data-lucide="rocket" class="icon-footer"></i>
+      <span>Propelling aerospace innovation, one engine at a time.</span>
+    </div>
+  </footer>
+
+  <!-- Copy toast -->
+  <div class="toast" id="copyToast" aria-live="polite">Copied to Clipboard</div>
+
+  <script>
+    // Icons
+    lucide.createIcons();
+
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu    = document.getElementById('mobileMenu');
+    const menuIcon      = document.getElementById('menuIcon');
+    const closeIcon     = document.getElementById('closeIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      const open = mobileMenu.classList.contains('active');
+      menuIcon.style.display = open ? 'none' : 'block';
+      closeIcon.style.display = open ? 'block' : 'none';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      navbar.style.backgroundColor = window.scrollY > 50
+        ? 'rgba(255, 255, 255, 0.98)'
+        : 'rgba(255, 255, 255, 0.95)';
+    });
+
+    // Ensure GIF animates on load: reset the src once the page is ready
+    window.addEventListener('DOMContentLoaded', () => {
+      const gif = document.getElementById('ikGif');
+      if (gif && gif.tagName === 'IMG') {
+        const src = gif.getAttribute('src');
+        // Briefly clear then restore the src to kickstart animation (avoids some browsers pausing cached GIFs)
+        gif.setAttribute('src', '');
+        gif.setAttribute('src', src);
+      }
+    });
+
+    // --- Email CTA: copy email + toast + open mail client ---
+    const emailLink = document.getElementById('emailLink');
+    const copyToast = document.getElementById('copyToast');
+
+    function showToast() {
+      copyToast.classList.add('show');
+      setTimeout(() => copyToast.classList.remove('show'), 1800);
+    }
+
+    if (emailLink) {
+      emailLink.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = emailLink.dataset.email || 'jackthuston1@gmail.com';
+        const mailtoHref = emailLink.dataset.mailto || emailLink.href;
+
+        try {
+          await navigator.clipboard.writeText(email);
+          showToast();
+        } catch (err) {
+          // If clipboard is blocked, continue gracefully.
+        }
+
+        window.location.href = mailtoHref;
+      });
+    }
+
+    setTimeout(() => lucide.createIcons(), 100);
+  </script>
+</body>
+</html>
