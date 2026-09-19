@@ -1,10 +1,12 @@
 from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
+
 # Define the JSON url path
 CELESTRAK_URL = "https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=TLE"
 
 # Ensure cache directory exists
-CACHE_DIR = Path(".cache")
+CACHE_DIR = BASE_DIR / ".cache"
 CACHE_DIR.mkdir(exist_ok=True)
 CACHE_FILE = CACHE_DIR / "celestrak_active.txt"
 

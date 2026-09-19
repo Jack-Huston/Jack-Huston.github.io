@@ -1,4 +1,4 @@
-# TLE-Plotter — Setup + Run Instructions
+# TLE Plotter — Setup and Run Instructions
 
 This project:
 - Downloads the latest **active satellite** TLEs from CelesTrak (cached locally)
@@ -10,7 +10,7 @@ This project:
 
 ## Folder layout
 
-Expected structure:
+Expected structure inside `Python Code`:
 
 ```
 TLE-Plotter/
@@ -34,17 +34,15 @@ TLE-Plotter/
 - Recommended: **Python 3.10–3.12**
 
 ### Python packages
-Install these packages into a clean environment:
-- `numpy`
-- `requests`
-- `sgp4`
-- `vispy`
-- **A Qt backend for VisPy**: `PyQt6` (recommended) or `PySide6`
-- Optional but recommended for robust image loading: `pillow` (and/or `imageio`)
+Install the pinned project dependencies from `requirements.txt` into a clean environment:
+
+```powershell
+python -m pip install -r requirements.txt
+```
 
 ## Run the app
 
-From the project root:
+From the `Python Code` directory:
 
 ```powershell
 python main.py

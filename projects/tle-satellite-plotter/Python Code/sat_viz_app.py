@@ -39,8 +39,8 @@ SAT_MARKER_SIZE = 4.0
 #How often to print status line (seconds)
 PRINT_STATUS_EVERY_SEC = 10.0
 
-#Texture path (relative to project root)
-EARTH_TEX_PATH = Path("assets") / "earth_4k.png"
+# Resolve the texture from this module so the app works from any working directory.
+EARTH_TEX_PATH = Path(__file__).resolve().parent / "assets" / "earth_4k.png"
 
 #Max texture dimension=
 MAX_TEX_DIM = 4096

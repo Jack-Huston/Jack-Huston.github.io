@@ -19,6 +19,7 @@ class PageParser(html.parser.HTMLParser):
         super().__init__()
         self.ids: set[str] = set()
         self.links: list[tuple[str, str]] = []
+        self.resources: list[tuple[str, str]] = []
         self.images_without_alt: list[str] = []
         self.videos_without_controls: list[str] = []
         self.lang: str | None = None
@@ -31,6 +32,10 @@ class PageParser(html.parser.HTMLParser):
             self.ids.add(attrs_dict["id"] or "")
         if tag == "a" and attrs_dict.get("href"):
             self.links.append(("a", attrs_dict["href"] or ""))
+        if tag in {"img", "script", "source", "video", "audio", "iframe"} and attrs_dict.get("src"):
+            self.resources.append((tag, attrs_dict["src"] or ""))
+        if tag == "link" and attrs_dict.get("href"):
+            self.resources.append((tag, attrs_dict["href"] or ""))
         if tag == "img" and "alt" not in attrs_dict:
             self.images_without_alt.append(self.get_starttag_text() or "img")
         if tag == "video" and "controls" not in attrs_dict:
@@ -68,14 +73,21 @@ def check() -> int:
             clean = unquote(href.split("#", 1)[0].split("?", 1)[0])
             if not clean or not is_local_href(clean):
                 continue
-            target = (page.parent / clean).resolve()
+            target = (ROOT / clean.lstrip("/")) if clean.startswith("/") else (page.parent / clean).resolve()
             if clean.endswith("/"):
                 target = target / "index.html"
             if not target.exists():
                 errors.append(f"{relative}: broken local link {href}")
+        for tag, href in parser.resources:
+            clean = unquote(href.split("#", 1)[0].split("?", 1)[0])
+            if not clean or not is_local_href(clean):
+                continue
+            target = (ROOT / clean.lstrip("/")) if clean.startswith("/") else (page.parent / clean).resolve()
+            if not target.exists():
+                errors.append(f"{relative}: broken local {tag} resource {href}")
         if "unpkg.com/lucide@latest" in text:
             errors.append(f"{relative}: unpinned Lucide dependency")
-        if "<main" not in text and "role=\"main\"" not in text:
+        if "http-equiv=\"refresh\"" not in text and "<main" not in text and "role=\"main\"" not in text:
             warnings.append(f"{relative}: no semantic main element (shared JS adds a keyboard target)")
 
     if not (ROOT / "CNAME").read_text(encoding="utf-8").strip():

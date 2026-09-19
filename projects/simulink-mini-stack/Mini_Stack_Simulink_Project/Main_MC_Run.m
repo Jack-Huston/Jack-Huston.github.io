@@ -42,7 +42,7 @@ for k = 1:nMC
     mcIter = k;                                                % MC iteration index (predictable randomization)
     config = setInitialConditions(base, testID, randomizeInitialConditions, randSeed, mcIter);
     
-    x=1;% -> Run To Here For Blue Origin Demo, Then Run Plot Section <-
+    % Run to this point for the demonstration, then run the plot section if needed.
     
     data = runModel(config, modelName, displayAnimation);
    

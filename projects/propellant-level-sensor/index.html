@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="styles.css"/>
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
   <style>html{scroll-behavior:smooth;}</style>
-    <link rel=""stylesheet"" href=""../../assets/site.css"" />
-    <script src=""../../assets/site.js"" defer></script>
+    <link rel="stylesheet" href="../../assets/site.css" />
+    <script src="../../assets/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -176,12 +176,12 @@
         <div class="detail-content">
           <h3 class="detail-title">Electronics & Readout</h3>
           <p class="detail-text">
-            The Arduino’s internal trace capacitance forms a divider with the sensor. By charging the sensor rods and measuring the charged voltage over time can be used to calculate capacitance, which is then converted to fluid height. Height is output as a 0–5&nbsp;V analog level or via I2C to the test stand.
+            The Arduino’s internal trace capacitance forms a divider with the sensor. Charging the sensor rods and measuring the voltage over time provides the capacitance estimate, which is then converted to fluid height. Height is output as a 0–5&nbsp;V analog level or via I2C to the test stand.
           </p>
           <ul class="detail-list">
             <li>Internal capacitance ≈ 30&nbsp;pF (characterized for accuracy)</li>
             <li>Resolution: ~1% for Propellant (3.5–225&nbsp;pF); ~5% for DI Water (Up to 2&nbsp;nF)</li>
-            <li>Minimum height resolution ≈ ±11.5&nbsp;mm (total propogated error)</li>
+            <li>Minimum height resolution ≈ ±11.5&nbsp;mm (total propagated error)</li>
             <li>Optional parallel cap (~1250&nbsp;pF) allows for easy conversion to water tests</li>
           </ul>
           <div class="centered-media">
@@ -325,7 +325,7 @@
 
         <h3 class="results-heading">Lessons Learned</h3>
         <p class="results-text">
-          Characterizing the Arduino’s internal capacitance is critical for accuracy and is not consistent across different chips. This should be calibrated independently for each sensing device. Fluid permittivity changes and temperature effects drive the need for fluid-specific calibration. Cleanliness of system must be maintained for LO2 compatibility and to ensure testing DI water remains non-conductive.
+          Characterizing the Arduino’s internal capacitance is critical for accuracy and is not consistent across different chips. This should be calibrated independently for each sensing device. Fluid permittivity changes and temperature effects drive the need for fluid-specific calibration. Cleanliness of the system must be maintained for LOX compatibility and to ensure DI-water testing remains non-conductive.
         </p>
 
         <h3 class="results-heading">Future Work</h3>

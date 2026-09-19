@@ -32,11 +32,11 @@
       options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 
   <style>html{scroll-behavior:smooth}</style>
-    <link rel=""stylesheet"" href=""../../assets/site.css"" />
-    <script src=""../../assets/site.js"" defer></script>
+    <link rel="stylesheet" href="../../assets/site.css" />
+    <script src="../../assets/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -113,7 +113,7 @@
           <span>Jump to Demos</span>
         </a>
         <a href="#technical" class="btn-secondary">See Architecture</a>
-        <a href="https://github.com/Jack-Huston/Simulink-Mini-Stack/tree/main/Mini_Stack_Simulink_Project" class="btn-secondary">Github Repo</a>
+        <a href="https://github.com/Jack-Huston/Jack-Huston.github.io/tree/main/projects/simulink-mini-stack/Mini_Stack_Simulink_Project" class="btn-secondary">Source in this repo</a>
       </div>
     </div>
   </section>
@@ -168,7 +168,7 @@
               <i data-lucide="cpu"></i>
               <h3>Estimation</h3>
             </div>
-            <p>MEKF (error-state EKF) to handle non-linear quanternion data</p>
+            <p>MEKF (error-state EKF) to handle non-linear quaternion data</p>
           </div>
 
           <div class="quick-item">
@@ -176,7 +176,7 @@
               <i data-lucide="check-circle"></i>
               <h3>Validation</h3>
             </div>
-            <p>Seeded RNG, repeatable runs, unit-test mindset. A full Monte Carlo test suite planned next.</p>
+            <p>Seeded RNG, repeatable runs, and a 50-run Monte Carlo driver provide a reproducible validation baseline.</p>
           </div>
         </div>
       </div>
@@ -259,7 +259,6 @@
               muted
               loop
               playsinline
-              preload="metadata"
             ></video>
             <div class="media-caption">Left: controller off. Right: controller on.</div>
           </div>
@@ -291,7 +290,6 @@
               muted
               loop
               playsinline
-              preload="metadata"
             ></video>
             <div class="media-caption">Underdamped, critically damped, and overdamped test cases.</div>
           </div>
@@ -311,7 +309,7 @@
             </div>
             <h3 class="demo-title">Attitude hold with controlled roll reversal</h3>
             <p class="demo-text">
-              This clip steps through three fixed attitutes and then returns home. At each attitude, the controller settles first, then commands a constant body-rate roll about a single axis, then reverses the roll direction, then settles again. Attitude commands use scalar-first quaternions, body-rate commands are in rad/s.
+              This clip steps through three fixed attitudes and then returns home. At each attitude, the controller settles first, then commands a constant body-rate roll about a single axis, then reverses the roll direction, then settles again. Attitude commands use scalar-first quaternions, body-rate commands are in rad/s.
             </p>
           </div>
 
@@ -322,7 +320,6 @@
               muted
               loop
               playsinline
-              preload="metadata"
             ></video>
             <div class="media-caption">Tracking commanded attitudes with settle windows and roll reversal.</div>
           </div>
@@ -935,7 +932,7 @@
       <div class="val-note">
         <i data-lucide="info"></i>
         <p>
-          A full Monte Carlo validation suite is in progress. The next section outlines the plan and the exact metrics it will report.
+          The current validation includes a seeded 50-run Monte Carlo baseline. The next section outlines the additional coverage and metrics I would add for a flight-software verification campaign.
         </p>
       </div>
     </div>

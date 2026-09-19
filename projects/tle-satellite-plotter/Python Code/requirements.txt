@@ -1,0 +1,6 @@
+numpy
+requests
+sgp4
+vispy
+PyQt6
+pillow
