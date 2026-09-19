@@ -14,12 +14,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jack Huston - GN&amp;C / Autonomy Portfolio</title>
+    <meta name="description" content="Jack Huston portfolio: guidance, navigation, control, autonomy engineering, propulsion, and hands-on systems projects." />
+    <link rel="canonical" href="https://www.jack-huston.com/" />
+    <meta property="og:title" content="index | Jack Huston" />
+    <meta property="og:description" content="Jack Huston portfolio: guidance, navigation, control, autonomy engineering, propulsion, and hands-on systems projects." />
+    <meta property="og:type" content="website" />
+
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
   <link rel="stylesheet" href="styles.css"/>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
   <style>html{scroll-behavior:smooth}</style>
+    <link rel=""stylesheet"" href=""assets/site.css"" />
+    <script src=""assets/site.js"" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
@@ -39,13 +48,13 @@
             <i data-lucide="chevron-down" class="dropdown-icon"></i>
           </button>
           <div class="dropdown-content" id="desktopProjectsSubmenu">
-            <a href="https://www.jack-huston.com/Simulink-Mini-Stack/">Simulink GN&amp;C Mini-Stack</a>
-            <a href="https://www.jack-huston.com/Orbit-Determination/">Orbit Determination + LQR Control</a>
-            <a href="https://jack-huston.github.io/Ice-Plume-Detector">Ice Plume Detector</a>
-            <a href="https://jack-huston.github.io/Propellant-Level-Sensor">Propellant Sensor</a>
-            <a href="https://jack-huston.github.io/Smart-Home-Lamp">Smart Home Lamp</a>
-            <a href="https://jack-huston.github.io/Undergraduate-Rocketry">Liquid Engine Dev</a>
-            <a href="https://jack-huston.github.io/Time-Writing-Robot">SCARA Robot</a>
+            <a href="projects/simulink-mini-stack/">Simulink GN&amp;C Mini-Stack</a>
+            <a href="projects/orbit-determination/">Orbit Determination + LQR Control</a>
+            <a href="projects/ice-plume-detector/">Ice Plume Detector</a>
+            <a href="projects/propellant-level-sensor/">Propellant Sensor</a>
+            <a href="projects/smart-home-lamp/">Smart Home Lamp</a>
+            <a href="projects/undergraduate-rocketry/">Liquid Engine Dev</a>
+            <a href="projects/time-writing-robot/">SCARA Robot</a>
           </div>
         </div>
         <a href="#adventures" class="nav-link">Adventures</a>
@@ -71,13 +80,13 @@
       </button>
 
       <div class="mobile-dropdown-content" id="mobileProjectsSubmenu">
-        <a href="https://www.jack-huston.com/Simulink-Mini-Stack/" class="mobile-sublink">Simulink GN&amp;C Mini-Stack</a>
-        <a href="https://www.jack-huston.com/Orbit-Determination/" class="mobile-sublink">Orbit Determination + LQR Control</a>
-        <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="mobile-sublink">Ice Plume Detector</a>
-        <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="mobile-sublink">Propellant Sensor</a>
-        <a href="https://jack-huston.github.io/Smart-Home-Lamp" class="mobile-sublink">Smart Home Lamp</a>
-        <a href="https://jack-huston.github.io/Undergraduate-Rocketry" class="mobile-sublink">Liquid Engine Dev</a>
-        <a href="https://jack-huston.github.io/Time-Writing-Robot" class="mobile-sublink">SCARA Robot</a>
+        <a href="projects/simulink-mini-stack/" class="mobile-sublink">Simulink GN&amp;C Mini-Stack</a>
+        <a href="projects/orbit-determination/" class="mobile-sublink">Orbit Determination + LQR Control</a>
+        <a href="projects/ice-plume-detector/" class="mobile-sublink">Ice Plume Detector</a>
+        <a href="projects/propellant-level-sensor/" class="mobile-sublink">Propellant Sensor</a>
+        <a href="projects/smart-home-lamp/" class="mobile-sublink">Smart Home Lamp</a>
+        <a href="projects/undergraduate-rocketry/" class="mobile-sublink">Liquid Engine Dev</a>
+        <a href="projects/time-writing-robot/" class="mobile-sublink">SCARA Robot</a>
       </div>
     </div>
 
@@ -86,9 +95,9 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-icon">
+  <section id="main-content" class="hero">
+    <div id="main-content" class="hero-content">
+      <div id="main-content" class="hero-icon">
         <i data-lucide="crosshair" class="icon-hero"></i>
       </div>
       <h1 class="hero-title">GN&amp;C / Autonomy Engineer</h1>
@@ -100,7 +109,7 @@
         <strong class="text-primary">M.S. student</strong> at CU Boulder, focused on <strong class="text-accent">Autonomous Guidance, Navigation &amp; Control</strong>.<br>
         Building projects in simulation and algorithm testing. Targeting roles in <strong class="text-primary">Seattle, WA</strong>.
       </p>
-      <div class="hero-buttons">
+      <div id="main-content" class="hero-buttons">
         <a href="#projects" class="btn-primary">
           <i data-lucide="zap"></i>
           <span>View My Work</span>
@@ -120,7 +129,7 @@
       <div class="about-card">
         <div class="about-content-wrapper">
           <div class="about-profile-image">
-            <img src="profile-photo.jpg" alt="Jack Huston">
+            <img loading="lazy" src="profile-photo.jpg" alt="Jack Huston">
           </div>
           <div class="about-text-content">
             <p class="about-text">
@@ -142,11 +151,11 @@
           </div>
         </div>
         <div class="about-buttons-container">
-          <a href="https://jack-huston.github.io/Jack%20Huston%20Resume.pdf" download class="btn-cv">
+          <a href="Jack%20Huston%20Resume.pdf" download class="btn-cv">
             <i data-lucide="download"></i>
             <span>Download Resume</span>
           </a>
-          <a href="https://jack-huston.github.io/About-Me" class="btn-learn-more">
+          <a href="about/" class="btn-learn-more">
             <i data-lucide="user"></i>
             <span>Learn More</span>
           </a>
@@ -161,9 +170,9 @@
       <h2 class="section-title">Featured Projects</h2>
       <div class="projects-grid">
         <!-- Simulink Demo Project -->
-        <a href="https://www.jack-huston.com/Simulink-Mini-Stack/" class="project-card">
+        <a href="projects/simulink-mini-stack/" class="project-card">
           <div class="project-image-container">
-            <img src="project_images/simulink-demo-card-image.jpg" alt="Simulink GN&amp;C mini-stack attitude control demo (image placeholder)" class="project-image">
+            <img loading="lazy" src="project_images/simulink-demo-card-image.jpg" alt="Simulink GN&amp;C mini-stack attitude control demo (image placeholder)" class="project-image">
           </div>
           <div class="project-badge-header">
             <i data-lucide="layers"></i>
@@ -194,9 +203,9 @@
         </a>
 
         <!-- Orbit Determination Project -->
-        <a href="https://www.jack-huston.com/Orbit-Determination/" class="project-card">
+        <a href="projects/orbit-determination/" class="project-card">
           <div class="project-image-container">
-            <img src="project_images/orbit-determination-card-image.jpg" alt="Orbit determination and LQR control demo (image placeholder)" class="project-image">
+            <img loading="lazy" src="project_images/orbit-determination-card-image.jpg" alt="Orbit determination and LQR control demo (image placeholder)" class="project-image">
           </div>
           <div class="project-badge-header">
             <i data-lucide="crosshair"></i>
@@ -227,9 +236,9 @@
         </a>
 
         <!-- TLE Visualizer Project -->
-        <a href="https://www.jack-huston.com/TLE-Satellite-Plotter/" class="project-card">
+        <a href="projects/tle-satellite-plotter/" class="project-card">
           <div class="project-image-container">
-            <img src="project_images/tle-plotter-card-image.jpg" alt="Satellite live position plotter (image placeholder)" class="project-image">
+            <img loading="lazy" src="project_images/tle-plotter-card-image.jpg" alt="Satellite live position plotter (image placeholder)" class="project-image">
           </div>
           <div class="project-badge-header">
             <i data-lucide="orbit"></i>
@@ -257,9 +266,9 @@
         </a>
 
         <!-- Ice Plume Detector Project -->
-        <a href="https://jack-huston.github.io/Ice-Plume-Detector" class="project-card">
+        <a href="projects/ice-plume-detector/" class="project-card">
           <div class="project-image-container">
-            <img src="project_images/ice-plume-detector-card-image.jpg" alt="Ice plume particle detector" class="project-image">
+            <img loading="lazy" src="project_images/ice-plume-detector-card-image.jpg" alt="Ice plume particle detector" class="project-image">
           </div>
           <div class="project-badge-header">
             <i data-lucide="atom"></i>
@@ -288,9 +297,9 @@
         </a>
 
         <!-- Propellant Level Sensor Project -->
-        <a href="https://jack-huston.github.io/Propellant-Level-Sensor" class="project-card">
+        <a href="projects/propellant-level-sensor/" class="project-card">
           <div class="project-image-container">
-            <img src="project_images/propellant-level-sensor-card-image.jpg" alt="Liquid rocket propellant level sensor" class="project-image">
+            <img loading="lazy" src="project_images/propellant-level-sensor-card-image.jpg" alt="Liquid rocket propellant level sensor" class="project-image">
           </div>
           <div class="project-badge-header">
             <i data-lucide="activity"></i>
@@ -318,9 +327,9 @@
         </a>
 
         <!-- IoT Lamp Project -->
-        <a href="https://jack-huston.github.io/Smart-Home-Lamp" class="project-card">
+        <a href="projects/smart-home-lamp/" class="project-card">
           <div class="project-image-container">
-            <img src="project_images/color-lamp-card-image.jpg" alt="IoT smart home control lamps" class="project-image">
+            <img loading="lazy" src="project_images/color-lamp-card-image.jpg" alt="IoT smart home control lamps" class="project-image">
           </div>
           <div class="project-badge-header">
             <i data-lucide="wifi"></i>
@@ -348,9 +357,9 @@
         </a>
 
         <!-- Sounding Rocket Lab Project -->
-        <a href="https://jack-huston.github.io/Undergraduate-Rocketry" class="project-card">
+        <a href="projects/undergraduate-rocketry/" class="project-card">
           <div class="project-image-container">
-            <img src="project_images/srl-card-image.jpg" alt="Rocket integration and test" class="project-image">
+            <img loading="lazy" src="project_images/srl-card-image.jpg" alt="Rocket integration and test" class="project-image">
           </div>
           <div class="project-badge-header">
             <i data-lucide="wrench"></i>
@@ -379,9 +388,9 @@
         </a>
 
         <!-- Servo Plotter Project -->
-        <a href="https://jack-huston.github.io/Time-Writing-Robot" class="project-card">
+        <a href="projects/time-writing-robot/" class="project-card">
           <div class="project-image-container">
-            <img src="project_images/servo-plotter-card-image.jpg" alt="SCARA robot writing clock" class="project-image">
+            <img loading="lazy" src="project_images/servo-plotter-card-image.jpg" alt="SCARA robot writing clock" class="project-image">
           </div>
           <div class="project-badge-header">
             <i data-lucide="cpu"></i>
@@ -421,12 +430,12 @@
       </div>
 
       <div class="adventures-grid adventures-grid--centered">
-        <div class="adventure-photo"><img src="adventure-image-1.jpg" alt="Person skiing off of a very large boulder"></div>
-        <div class="adventure-photo"><img src="adventure-image-2.jpg" alt="Three mountaineers sitting at the top of a couloir in snowy saddle"></div>
-        <div class="adventure-photo"><img src="adventure-image-3.jpg" alt="Person belaying up climbers from the top of a flatiron"></div>
-        <div class="adventure-photo"><img src="climbing-cover-image.jpg" alt="Person climbing up a crack, hand above their head with their helmet wedged in the rock"></div>
-        <div class="adventure-photo"><img src="skiing-cover-image.jpg" alt="Person skiing in a wide open and white slope"></div>
-        <div class="adventure-photo"><img src="travel-cover-image.jpg" alt="Scuba diver suspended in the middle of an expansive blue ocean"></div>
+        <div class="adventure-photo"><img loading="lazy" src="adventure-image-1.jpg" alt="Person skiing off of a very large boulder"></div>
+        <div class="adventure-photo"><img loading="lazy" src="adventure-image-2.jpg" alt="Three mountaineers sitting at the top of a couloir in snowy saddle"></div>
+        <div class="adventure-photo"><img loading="lazy" src="adventure-image-3.jpg" alt="Person belaying up climbers from the top of a flatiron"></div>
+        <div class="adventure-photo"><img loading="lazy" src="climbing-cover-image.jpg" alt="Person climbing up a crack, hand above their head with their helmet wedged in the rock"></div>
+        <div class="adventure-photo"><img loading="lazy" src="skiing-cover-image.jpg" alt="Person skiing in a wide open and white slope"></div>
+        <div class="adventure-photo"><img loading="lazy" src="travel-cover-image.jpg" alt="Scuba diver suspended in the middle of an expansive blue ocean"></div>
       </div>
     </div>
   </section>

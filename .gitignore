@@ -1,0 +1,21 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Python and satellite-data caches
+__pycache__/
+*.py[cod]
+.cache/
+
+# MATLAB/Simulink generated output
+slprj/
+*.slxc
+*.autosave
+*.asv
+
+# Local exports and generated datasets are not portfolio assets.
+dataExport.mat
+
+# Local validation output
+_site-check/
