@@ -8,7 +8,8 @@ This repository is the single source for [www.jack-huston.com](https://www.jack-
 - `about/` — biography, experience, education, and resume links
 - `projects/` — canonical project pages and the media/source needed by each page
 - `assets/site.css` and `assets/site.js` — shared visual/accessibility/performance baseline
-- `legacy/` — internal migration notes and redirect targets for old routes
+- `docs/` — maintenance notes and the migration path for retiring the old repos
+- mixed-case project folders at the repository root — redirect-only compatibility routes for old URLs
 - `.github/workflows/pages.yml` — GitHub Pages deployment
 
 Generated MATLAB/Simulink output, Python caches, and large local exports are intentionally excluded. Project demonstrations remain in the project folders, but videos use user controls and deferred loading.
